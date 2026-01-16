@@ -272,7 +272,7 @@ export default function AboutHero() {
         {/* ================= PERKS ================= */}
         <div className="max-w-7xl mx-auto px-6 mb-50 text-center">
 
-          <p className="text-sm tracking-widest text-blue-600 mb-2">
+          <p className="text-2xl tracking-widest text-blue-600 mb-2">
             – SITE INVENTION –
           </p>
           <h2 className="text-3xl font-bold text-[#243B69] mb-12">
@@ -290,7 +290,7 @@ export default function AboutHero() {
             ].map((item, index) => (
               <div
                 key={index}
-                className="border rounded-lg p-8 shadow-sm
+                className="bg-gray-70 border-3 border-gray-300 rounded-lg p-8 shadow-2xl
                          hover:shadow-lg transition text-center"
               >
 

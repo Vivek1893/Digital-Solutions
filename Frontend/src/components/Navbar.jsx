@@ -66,7 +66,7 @@ const Navbar = () => {
                 onMouseLeave={() => setServicesDropdown(false)}
                 className="flex items-center text-gray-700 hover:text-blue-600 font-medium transition-colors"
               >
-              Services
+                Services
                 {servicesDropdown ? (
                   <ChevronUp className="ml-1 h-4 w-4 transition-transform duration-300" />
                 ) : (
@@ -92,7 +92,7 @@ const Navbar = () => {
                     Web Design/Development
                   </Link>
                   <Link
-                    to="/services/ecommerce"
+                    to="/services/e-commerce"
                     className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded transition-colors duration-200 cursor-pointer"
                     onClick={() => setServicesDropdown(false)}
                   >
@@ -100,7 +100,7 @@ const Navbar = () => {
                     E-commerce Website
                   </Link>
                   <Link
-                    to="/services/seo"
+                    to="/services/seoservices"
                     className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded transition-colors duration-200 cursor-pointer"
                     onClick={() => setServicesDropdown(false)}
                   >
@@ -156,7 +156,7 @@ const Navbar = () => {
                     Voice Automation
                   </Link>
                   <Link
-                    to="/services/n8n-workflow"
+                    to="/services/nn-workflow"
                     className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded transition-colors duration-200 cursor-pointer"
                     onClick={() => setServicesDropdown(false)}
                   >
@@ -168,7 +168,7 @@ const Navbar = () => {
             </div>
 
             <Link
-              to="/clients"
+              to="/our-client"
               className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
               onClick={() => {
                 setServicesDropdown(false);
@@ -177,58 +177,18 @@ const Navbar = () => {
             >
               Our Clients
             </Link>
+             <Link
+              to="/project"
+              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+              onClick={() => {
+                setServicesDropdown(false);
+                setStoriesDropdown(false);
+              }}
+            >
+              Projects
+            </Link>
 
-            <div className="relative">
-              <button
-                onClick={() => {
-                  setServicesDropdown(false);
-                  setStoriesDropdown(!storiesDropdown);
-                }}
-                onMouseEnter={() => setStoriesDropdown(true)}
-                onMouseLeave={() => setStoriesDropdown(false)}
-                className="flex items-center text-gray-700 hover:text-blue-600 font-medium transition-colors"
-              >
-                Our Projects
-                {/* {storiesDropdown ? (
-                  <ChevronUp className="ml-1 h-4 w-4 transition-transform duration-300" />
-                ) : (
-                  <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-300" />
-                )} */}
-              </button>
-
-              {/* {storiesDropdown && (
-                <div
-                  onMouseEnter={() => setStoriesDropdown(true)}
-                  onMouseLeave={() => setStoriesDropdown(false)}
-                  className={`absolute top-full left-0 mt-2 bg-white rounded-md shadow-lg z-50 transition-all duration-300 ease-in-out ${storiesDropdown
-                    ? 'opacity-100 transform translate-y-0 visible'
-                    : 'opacity-0 transform -translate-y-2 invisible'
-                    }`}
-                >
-                  <Link
-                    to="/stories/case-studies"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded transition-colors duration-200 cursor-pointer"
-                    onClick={() => setStoriesDropdown(false)}
-                  >
-                    Case Studies
-                  </Link>
-                  <Link
-                    to="/stories/testimonials"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded transition-colors duration-200 cursor-pointer"
-                    onClick={() => setStoriesDropdown(false)}
-                  >
-                    Testimonials
-                  </Link>
-                  <Link
-                    to="/stories/portfolio"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded transition-colors duration-200 cursor-pointer"
-                    onClick={() => setStoriesDropdown(false)}
-                  >
-                    Portfolio
-                  </Link>
-                </div>
-              )} */}
-            </div>
+           
 
             <Link
               to="/contact"

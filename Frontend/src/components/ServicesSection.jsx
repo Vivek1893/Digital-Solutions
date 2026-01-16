@@ -47,7 +47,7 @@ const ServicesSection = () => {
       title: "App Development",
       description: "Native and cross-platform mobile applications. We build apps that engage users and drive business growth."
     }
-    
+
   ];
 
   return (
