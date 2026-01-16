@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Marquee() {
   return (
-    <section className="overflow-hidden w-full py-6 bg-[#e6e6e6]">
+    <section className="overflow-hidden w-full py-6 bg-white">
       
       <div className="flex whitespace-nowrap animate-marquee">
         

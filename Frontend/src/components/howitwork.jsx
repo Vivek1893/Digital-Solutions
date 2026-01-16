@@ -1,139 +1,150 @@
 import React from "react";
-import { FaUsers, FaChartBar, FaThumbsUp } from "react-icons/fa";
+import {
+  FiSearch,
+  FiEdit,
+  FiCode,
+  FiSettings,
+} from "react-icons/fi";
 
-export default function WorkProcess() {
-  const steps = [
-    {
-      id: "01",
-      title: "Choose Service",
-      desc: "In a free hour, when our power of choice is untrammeled and",
-      icon: <FaUsers size={75} />,
-    },
-    {
-      id: "02",
-      title: "Start Optimizing",
-      desc: "In a free hour, when our power of choice is untrammeled and",
-      icon: <FaChartBar size={75} />,
-    },
-    {
-      id: "03",
-      title: "Launch Now",
-      desc: "In a free hour, when our power of choice is untrammeled and",
-      icon: <FaThumbsUp size={75} />,
-    },
-  ];
-
+export default function ProcessDesign() {
   return (
-    <section className="relative w-full py-28 bg-[#0d102e] text-white overflow-hidden">
+    <section className="relative w-full bg-white py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative">
 
-      {/* 🔵 Background Glow (Left) */}
-      <div className="absolute left-0 top-32 w-[500px] h-[500px] rounded-full bg-yellow-400 opacity-10 blur-[150px]"></div>
-
-      {/* 🟣 Wave Shape (Right) */}
-      <div className="absolute right-0 top-0 opacity-40 scale-125">
-        <svg width="500" height="700" viewBox="0 0 700 700" fill="none">
-          <path
-            d="M150 0C350 200 500 350 450 500C400 650 200 700 50 550C-100 400 50 200 150 0Z"
-            fill="#161833"
-          />
-        </svg>
-      </div>
-
-      {/* 🌀 3D Metallic Ring (Bottom Right) */}
-      <div className="absolute bottom-0 right-10 opacity-60">
-        <svg width="260" height="260" viewBox="0 0 200 200" fill="none">
-          <ellipse
-            cx="100"
-            cy="100"
-            rx="85"
-            ry="40"
-            stroke="#2f2f2f"
-            strokeWidth="12"
-            fill="none"
-          />
-        </svg>
-      </div>
-
-      {/* Heading */}
-      <div className="text-center mb-20 relative z-10">
-        <p className="text-yellow-400 tracking-wider font-semibold uppercase">
-          Working Process
-        </p>
-        <h2 className="text-4xl md:text-5xl font-extrabold mt-3 leading-tight">
-          OUR WORK PROCESS <br /> IN 3 EASY STEPS
+        {/* Title */}
+        <h2 className="text-2xl sm:text-3xl md:text-[42px] leading-tight font-semibold text-center text-[#2B3A67] mb-12 md:mb-28">
+          Our Process of Work
         </h2>
-      </div>
 
-      {/* Steps */}
-      <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between px-6 gap-16 relative z-10">
+        {/* SVG Curve - Hidden on mobile and tablet */}
+        <svg
+          viewBox="0 0 1200 260"
+          className="hidden md:block absolute left-1/2 -translate-x-1/2 top-[170px] w-full"
+          fill="none"
+        >
+          <path
+            d="M50 200 C 350 60, 850 60, 1150 200"
+            stroke="#387be0ff"
+            strokeWidth="2"
+            strokeDasharray="6 6"
+          />
+        </svg>
 
-        {steps.map((step, index) => (
-          <div key={index} className="text-center relative">
+        {/* Steps Container */}
+        <div className="relative h-auto md:h-[430px]">
 
-            {/* Yellow Circle */}
-            <div className="relative flex items-center justify-center mx-auto w-32 h-32 bg-yellow-400 rounded-full text-black shadow-xl">
-              {step.icon}
-
-              {/* Step Number */}
-              <div className="absolute -top-3 -right-3 bg-[#0d102e] text-white w-10 h-10 flex items-center justify-center rounded-full border border-gray-600 text-sm font-bold">
-                {step.id}
+          {/* Mobile & Tablet Layout - Vertical Stack */}
+          <div className="md:hidden flex flex-col items-center space-y-8 sm:space-y-12">
+            {/* STEP 1 - Planning */}
+            <div className="flex flex-col items-center text-center w-full max-w-xs">
+              <span className="text-blue-600 text-lg sm:text-xl font-semibold mb-4">
+                STEP 1
+              </span>
+              <div className="w-20 h-20 sm:w-24 sm:h-24 bg-orange-50 rounded-2xl flex items-center justify-center shadow mb-4">
+                <img src="/images/ser2.png" alt="Planning" className="w-12 h-12 sm:w-16 sm:h-16" />
               </div>
+              <p className="text-base sm:text-lg font-semibold text-gray-700">
+                Planning
+              </p>
             </div>
 
-            {/* Title */}
-            <h3 className="text-xl font-semibold mt-6">{step.title}</h3>
-
-            {/* Description */}
-            <p className="text-gray-400 max-w-[260px] mx-auto mt-3">
-              {step.desc}
-            </p>
-
-            {/* Curved Arrow */}
-            {index < 2 && (
-              <div className="hidden sm:block absolute top-14 right-[-130px]">
-                <svg
-                  width="150"
-                  height="70"
-                  viewBox="0 0 150 70"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M10 60 C50 20, 100 20, 140 60"
-                    stroke="#F6C100"
-                    strokeWidth="3"
-                    fill="none"
-                    strokeLinecap="round"
-                  />
-                  <path
-                    d="M135 55 L140 60 L135 65"
-                    stroke="#F6C100"
-                    strokeWidth="3"
-                    fill="none"
-                    strokeLinecap="round"
-                  />
-                </svg>
+            {/* STEP 2 - Design */}
+            <div className="flex flex-col items-center text-center w-full max-w-xs">
+              <span className="text-blue-600 text-lg sm:text-xl font-semibold mb-4">
+                STEP 2
+              </span>
+              <div className="w-20 h-20 sm:w-24 sm:h-24 bg-blue-50 rounded-2xl flex items-center justify-center shadow mb-4">
+                <img src="/images/ser1.png" alt="Design" className="w-12 h-12 sm:w-16 sm:h-16" />
               </div>
-            )}
+              <p className="text-base sm:text-lg font-semibold text-gray-700">
+                Design
+              </p>
+            </div>
+
+            {/* STEP 3 - Development */}
+            <div className="flex flex-col items-center text-center w-full max-w-xs">
+              <span className="text-blue-600 text-lg sm:text-xl font-semibold mb-4">
+                STEP 3
+              </span>
+              <div className="w-20 h-20 sm:w-24 sm:h-24 bg-emerald-50 rounded-2xl flex items-center justify-center shadow mb-4">
+                <img src="/images/ser3.png" alt="Development" className="w-12 h-12 sm:w-16 sm:h-16" />
+              </div>
+              <p className="text-base sm:text-lg font-semibold text-gray-700">
+                Development
+              </p>
+            </div>
+
+            {/* STEP 4 - Launch */}
+            <div className="flex flex-col items-center text-center w-full max-w-xs">
+              <span className="text-blue-600 text-lg sm:text-xl font-semibold mb-4">
+                STEP 4
+              </span>
+              <div className="w-20 h-20 sm:w-24 sm:h-24 bg-cyan-50 rounded-2xl flex items-center justify-center shadow mb-4">
+                <img src="/images/ser4.png" alt="Launch" className="w-12 h-12 sm:w-16 sm:h-16" />
+              </div>
+              <p className="text-base sm:text-lg font-semibold text-gray-700">
+                Launch
+              </p>
+            </div>
           </div>
-        ))}
+
+          {/* Desktop & Laptop Layout - Curved Flow (unchanged) */}
+          <div className="hidden md:block relative h-[430px]">
+            {/* STEP 1 - Planning */}
+            <div className="absolute  top-[100px] flex flex-col items-center text-center w-[200px]">
+              <span className="text-blue-600 text-xl font-semibold mb-8">
+                STEP 1
+              </span>
+              <div className="w-40 h-40 bg-orange-50 rounded-2xl flex items-center justify-center shadow">
+                <img src="/images/ser2.png" alt="Planning" className="w-20 h-20" />
+              </div>
+              <p className="mt-6 text-2xl font-semibold text-gray-700">
+                Planning
+              </p>
+            </div>
+
+            {/* STEP 2 - Design */}
+            <div className="absolute left-[30%]  flex flex-col items-center text-center w-[200px]">
+              <span className="text-blue-600 text-xl font-semibold mb-3">
+                STEP 2
+              </span>
+              <div className="w-40 h-40 bg-blue-50 rounded-2xl flex items-center justify-center shadow">
+                <img src="/images/ser1.png" alt="Design" className="w-20 h-20" />
+              </div>
+              <p className="mt-6 text-2xl font-semibold text-gray-700">
+                Design
+              </p>
+            </div>
+
+            {/* STEP 3 - Development */}
+            <div className="absolute left-[55%]  flex flex-col items-center text-center w-[200px]">
+              <span className="text-blue-600 text-xl font-semibold mb-3">
+                STEP 3
+              </span>
+              <div className="w-40 h-40 bg-emerald-50 rounded-2xl flex items-center justify-center shadow">
+                <img src="/images/ser3.png" alt="Development" className="w-20 h-20" />
+              </div>
+              <p className="mt-6 text-2xl font-semibold text-gray-700">
+                Development
+              </p>
+            </div>
+
+            {/* STEP 4 - Launch */}
+            <div className="absolute right-[2%] top-[120px] flex flex-col items-center text-center w-[200px]">
+              <span className="text-blue-600 text-xl font-semibold mb-3">
+                STEP 4
+              </span>
+              <div className="w-40 h-40 bg-cyan-50 ml-5 rounded-2xl flex items-center justify-center shadow">
+                <img src="/images/ser4.png" alt="Launch" className="w-20 h-20" />
+              </div>
+              <p className="mt-6 text-2xl font-semibold text-gray-700">
+                Launch
+              </p>
+            </div>
+          </div>
+
+        </div>
       </div>
-
-      {/* CTA Buttons */}
-      <div className="mt-24 relative z-10 flex flex-col sm:flex-row justify-center items-center gap-6 px-6">
-        
-        {/* Left Button */}
-        <button className="px-10 py-4 rounded-full bg-transparent border border-gray-500 text-gray-200 text-lg tracking-wide backdrop-blur-md">
-          Let’s Request a Schedule For Free Consultation
-        </button>
-
-        {/* Yellow Button */}
-        <button className="px-10 py-4 rounded-full bg-yellow-400 text-black font-semibold text-lg tracking-wide flex items-center gap-2 shadow-lg">
-          GET IN TOUCH →
-        </button>
-
-      </div>
-
     </section>
   );
 }

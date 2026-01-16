@@ -1,102 +1,43 @@
-import React from "react";
-import { PhoneCall, Menu } from "lucide-react";
-import { motion } from "framer-motion";
+import { Phone, Mail, ArrowRight, Star } from "lucide-react";
 
-export default function DigiPlusHero() {
+const HeroQuoteSection = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-r from-[#111827] via-[#1b1f2e] to-[#b36d1c] text-white relative overflow-hidden">
-      <div className="px-8 md:px-20 pt-30 grid md:grid-cols-2 gap-10 items-center">
-        {/* Left Content */}
-        <div>
-          <p className="text-yellow-400 uppercase -mt-20 tracking-widest text-lg mb-3">
-            Brand Digital Agency
-          </p>
-          <h1 className="text-7xl font-extrabold leading-tight mb-6">
-            Make Your Brand <br /> Future‑Proof.
-          </h1>
+    <section className="relative bg-hero bg-cover bg-center min-h-screen flex items-center justify-center -mt-10">
+      {/* overlay */}
+      <div className="absolute inset-0 bg-theme/90"></div>
 
-          <p className="text-gray-300 max-w-md text-lg mb-8">
-            Web designing in a powerful way is not only our profession, however,
-            it's our passion. Smart looking websites are the first impression on
-            visitors.
-          </p>
-
-          <div className="flex items-center gap-6">
-            <button className="bg-yellow-500 text-black px-6 py-3 rounded-full font-semibold flex items-center gap-2">
-              DISCOVER MORE <span>&#8594;</span>
-            </button>
-            <div className="flex items-center gap-3">
-              <div className="flex -space-x-3">
-                <img
-                  className="w-10 h-10 rounded-full"
-                  src="https://i.pravatar.cc/40?img=1"
-                />
-                <img
-                  className="w-10 h-10 rounded-full"
-                  src="https://i.pravatar.cc/40?img=2"
-                />
-                <img
-                  className="w-10 h-10 rounded-full"
-                  src="https://i.pravatar.cc/40?img=3"
-                />
-              </div>
-              <div>
-                <span className="text-yellow-400 font-bold">30k+</span>
-                <br />
-                Satisfaction Clients
-              </div>
-            </div>
-          </div>
+      <div className="relative w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 md:py-24 lg:py-32 text-center">
+        {/* Badge */}
+        <div className="inline-flex items-center gap-2 bg-[#2563EB] text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
+          <Star size={16} />
+          Start Your Digital Journey
         </div>
 
-        {/* Right Image */}
-        <div className="relative flex justify-center">
-          <motion.img
-            src="/images/banner-image-8.png"
-            alt="man"
-            className="w-50 md:w-120 rounded-xl"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          />
+        {/* Heading */}
+        <h1 className="font-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+          <span className="text-white">We Design</span>{" "}
+          <span className="text-white">Digital Experiences</span>
+        </h1>
 
-          {/* ⭐ 5 Stars Card */}
-          <motion.div
-            initial={{ y: 0 }}
-            animate={{ y: [-10, 10, -10] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute bottom-10 left-0 bg-white text-black px-6 py-4 rounded-2xl shadow-xl border border-gray-100 backdrop-blur-md flex gap-4 items-center"
-          >
-            <div className="bg-black rounded-xl p-3 flex items-center justify-center">
-              ⭐
-            </div>
+        {/* Description */}
+        <p className="text-white/90 mb-8 max-w-2xl mx-auto text-lg leading-relaxed">
+          Transforming ideas into stunning, high-performance websites that captivate audiences and drive business growth
+        </p>
 
-            <div>
-              <p className="text-base font-bold text-gray-900">5 Stars</p>
-              <p className="text-sm text-gray-600">
-                Read Our{" "}
-                <span className="font-semibold underline">Success Stories</span>
-              </p>
-            </div>
-          </motion.div>
-          {/* 📈 Sales Trend Card */}
-          <motion.div
-            initial={{ y: 0 }}
-            animate={{ y: [10, -10, 10] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-60 right-0 px-5 py-4 rounded-2xl w-[280px]"
-          >
-            {/* Chart Image Full Fit */}
-            <div className="w-full h-[230px]">
-              <img
-                src="/images/Sales-Trend.png"
-                alt="chart"
-                className="w-full h-full object-contain"
-              />
-            </div>
-          </motion.div>
+        {/* Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <button className="inline-flex items-center justify-center gap-2 bg-[#2563EB] text-white px-6 py-3 rounded-lg font-medium hover:bg-[#1d4ed8] transition-colors">
+            Start Your Project
+            <ArrowRight size={18} />
+          </button>
+          <button className="inline-flex items-center justify-center gap-2 bg-[#2563EB] text-white px-6 py-3 rounded-lg font-medium hover:bg-[#1d4ed8] transition-colors">
+            Explore Our Services
+            <ArrowRight size={18} />
+          </button>
         </div>
       </div>
-    </div>
+    </section>
   );
-}
+};
+
+export default HeroQuoteSection;

@@ -1,225 +1,259 @@
-import React, { useState } from "react";
-import { Menu, PhoneCall } from "lucide-react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
+import { ChevronDown, ChevronUp, Monitor, ShoppingCart, Search, Palette, Database, Cpu, Globe, Bot, Mic, Workflow } from 'lucide-react';
 
-// React Icons
-import { FaUsers, FaHandshake, FaCogs, FaShieldAlt, FaHeart } from "react-icons/fa";
-import { MdWeb, MdDesignServices } from "react-icons/md";
-import { AiOutlineFundProjectionScreen } from "react-icons/ai";
-import { IoIosPeople } from "react-icons/io";
+const Navbar = () => {
+  const [servicesDropdown, setServicesDropdown] = useState(false);
+  const [storiesDropdown, setStoriesDropdown] = useState(false);
+  const dropdownRef = useRef(null);
 
-export default function Navbar() {
-  const [open, setOpen] = useState(false);
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setServicesDropdown(false);
+        setStoriesDropdown(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   return (
-    <header className="w-full fixed top-0 z-50 bg-black/40 backdrop-blur-lg border-b border-white/10">
-      <div className="max-w-[1300px] mx-auto px-6 py-4 flex items-center justify-between">
+    <nav className="bg-white shadow-md fixed top-0 left-0 right-0 z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-20">
+          {/* Logo Section */}
+          <div className="flex items-center space-x-3">
 
-        {/* Logo */}
-        <Link to="/">
-          <img
-            src="/images/logo6.png"
-            alt="Skill Nexora Logo"
-            className="h-14 w-auto object-contain"
-          />
-        </Link>
-
-        {/* Desktop Menu */}
-        <nav className="hidden md:flex items-center space-x-10 text-white text-[15px] font-semibold">
-
-          {/* COMPANY DROPDOWN */}
-          <div className="relative group">
-            <div className="flex items-center gap-1 cursor-pointer hover:text-yellow-400">
-              <span>Company</span>
-              <span>▼</span>
-            </div>
-
-            <div className="absolute left-0 top-full opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 mt-3 w-[720px] bg-[#5A4845] text-white p-6 rounded-xl shadow-xl z-50">
-              <div className="grid grid-cols-2 gap-6">
-
-                <Link to="/about" className="flex gap-3 hover:bg-white/10 p-3 rounded-lg cursor-pointer">
-                  <div className="bg-white p-3 rounded-md text-black">
-                    <FaUsers size={22} />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-[16px]">About Us</h3>
-                    <p className="text-[13px] text-gray-300">Who we are and what we stand for</p>
-                  </div>
-                </Link>
-
-                <Link to="/values" className="flex gap-3 hover:bg-white/10 p-3 rounded-lg cursor-pointer">
-                  <div className="bg-white p-3 rounded-md text-black">
-                    <FaHeart size={22} />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-[16px]">Our Values</h3>
-                    <p className="text-[13px] text-gray-300">What guides our company vision</p>
-                  </div>
-                </Link>
-
-                <Link to="/quality" className="flex gap-3 hover:bg-white/10 p-3 rounded-lg cursor-pointer">
-                  <div className="bg-white p-3 rounded-md text-black">
-                    <FaShieldAlt size={22} />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-[16px]">Quality Assurance</h3>
-                    <p className="text-[13px] text-gray-300">Reliability & trust guaranteed</p>
-                  </div>
-                </Link>
-
-                <Link to="/process" className="flex gap-3 hover:bg-white/10 p-3 rounded-lg cursor-pointer">
-                  <div className="bg-white p-3 rounded-md text-black">
-                    <FaCogs size={22} />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-[16px]">Development Process</h3>
-                    <p className="text-[13px] text-gray-300">From idea to delivery</p>
-                  </div>
-                </Link>
-
-                <Link to="/partners" className="flex gap-3 hover:bg-white/10 p-3 rounded-lg cursor-pointer">
-                  <div className="bg-white p-3 rounded-md text-black">
-                    <FaHandshake size={22} />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-[16px]">Partnerships</h3>
-                    <p className="text-[13px] text-gray-300">Collaborations & ecosystem</p>
-                  </div>
-                </Link>
-
-              </div>
-            </div>
+            <img
+              src="/images/logo.jpeg"
+              alt="Trinexora"
+              className="h-16 object-contain"
+            />
           </div>
 
-          {/* SERVICES DROPDOWN */}
-          <div className="relative group">
-            <div className="flex items-center gap-1 cursor-pointer hover:text-yellow-400">
-              <span>Services</span>
-              <span>▼</span>
-            </div>
+          {/* Navigation Links */}
+          <div className="hidden md:flex items-center space-x-8" ref={dropdownRef}>
+            <Link
+              to="/"
+              className="text-blue-700 hover:text-blue-600 font-medium transition-colors"
+              onClick={() => {
+                setServicesDropdown(false);
+                setStoriesDropdown(false);
+              }}
+            >
+              Home
+            </Link>
 
-            <div className="absolute left-0 top-full opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 mt-3 w-[720px] bg-[#5A4845] text-white p-6 rounded-xl shadow-xl z-50">
-              <div className="grid grid-cols-2 gap-6">
+            <Link
+              to="/about"
+              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+              onClick={() => {
+                setServicesDropdown(false);
+                setStoriesDropdown(false);
+              }}
+            >
+              About
+            </Link>
 
-                <Link className="flex gap-3 hover:bg-white/10 p-3 rounded-lg cursor-pointer">
-                  <div className="bg-white p-3 rounded-md text-black">
-                    <MdWeb size={22} />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold">Web Development</h3>
-                    <p className="text-[13px] text-gray-300">Modern websites & portals</p>
-                  </div>
-                </Link>
+            <div className="relative">
+              <button
+                onClick={() => setServicesDropdown(!servicesDropdown)}
+                onMouseEnter={() => setServicesDropdown(true)}
+                onMouseLeave={() => setServicesDropdown(false)}
+                className="flex items-center text-gray-700 hover:text-blue-600 font-medium transition-colors"
+              >
+              Services
+                {servicesDropdown ? (
+                  <ChevronUp className="ml-1 h-4 w-4 transition-transform duration-300" />
+                ) : (
+                  <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-300" />
+                )}
+              </button>
 
-                <Link className="flex gap-3 hover:bg-white/10 p-3 rounded-lg cursor-pointer">
-                  <div className="bg-white p-3 rounded-md text-black">
-                    <MdDesignServices size={22} />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold">UI / UX Design</h3>
-                    <p className="text-[13px] text-gray-300">Interactive & creative design</p>
-                  </div>
-                </Link>
-
-                <Link className="flex gap-3 hover:bg-white/10 p-3 rounded-lg cursor-pointer">
-                  <div className="bg-white p-3 rounded-md text-black">
-                    <AiOutlineFundProjectionScreen size={22} />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold">App Development</h3>
-                    <p className="text-[13px] text-gray-300">Android & iOS apps</p>
-                  </div>
-                </Link>
-
-              </div>
-            </div>
-          </div>
-
-          {/* OUR WORK DROPDOWN */}
-          <div className="relative group">
-            <div className="flex items-center gap-1 cursor-pointer hover:text-yellow-400">
-              <span>Our Work</span>
-              <span>▼</span>
-            </div>
-
-            <div className="absolute left-0 top-full opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 mt-3 w-[500px] bg-[#5A4845] text-white p-6 rounded-xl shadow-xl z-50">
-              <div className="grid grid-cols-1 gap-4">
-
-                <div className="flex gap-3 hover:bg-white/10 p-3 rounded-lg cursor-pointer">
-                  <div className="bg-white p-3 rounded-md text-black">
-                    <AiOutlineFundProjectionScreen size={22} />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold">Portfolio</h3>
-                    <p className="text-[13px] text-gray-300">See our recent projects</p>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-
-          {/* CLIENTS DROPDOWN */}
-          <div className="relative group">
-            <div className="flex items-center gap-1 cursor-pointer hover:text-yellow-400">
-              <span>Clients</span>
-              <span>▼</span>
-            </div>
-
-            <div className="absolute left-0 top-full opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 mt-3 w-[400px] bg-[#5A4845] text-white p-6 rounded-xl shadow-xl z-50">
-              <div className="flex gap-3 hover:bg-white/10 p-3 rounded-lg cursor-pointer">
-                <div className="bg-white p-3 rounded-md text-black">
-                  <IoIosPeople size={22} />
-                </div>
-                <div>
-                  <h3 className="font-semibold">Our Clients</h3>
-                  <p className="text-[13px] text-gray-300">Brands that trust us</p>
+              <div
+                onMouseEnter={() => setServicesDropdown(true)}
+                onMouseLeave={() => setServicesDropdown(false)}
+                className={`absolute top-full left-0 mt-2 bg-white rounded-md shadow-lg z-50 transition-all duration-300 ease-in-out ${servicesDropdown
+                  ? 'opacity-100 transform translate-y-0 visible'
+                  : 'opacity-0 transform -translate-y-2 invisible'
+                  }`}
+              >
+                <div className="grid grid-cols-2  p-2 w-130">
+                  <Link
+                    to="/services/web-design"
+                    className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded transition-colors duration-200 cursor-pointer"
+                    onClick={() => setServicesDropdown(false)}
+                  >
+                    <Monitor className="mr-3 h-4 w-4 text-blue-500" />
+                    Web Design/Development
+                  </Link>
+                  <Link
+                    to="/services/ecommerce"
+                    className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded transition-colors duration-200 cursor-pointer"
+                    onClick={() => setServicesDropdown(false)}
+                  >
+                    <ShoppingCart className="mr-3 h-4 w-4 text-green-500" />
+                    E-commerce Website
+                  </Link>
+                  <Link
+                    to="/services/seo"
+                    className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded transition-colors duration-200 cursor-pointer"
+                    onClick={() => setServicesDropdown(false)}
+                  >
+                    <Search className="mr-3 h-4 w-4 text-orange-500" />
+                    SEO Services
+                  </Link>
+                  <Link
+                    to="/services/ui-ux"
+                    className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded transition-colors duration-200 cursor-pointer"
+                    onClick={() => setServicesDropdown(false)}
+                  >
+                    <Palette className="mr-3 h-4 w-4 text-purple-500" />
+                    UI/UX Design
+                  </Link>
+                  <Link
+                    to="/services/erp-crm"
+                    className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded transition-colors duration-200 cursor-pointer"
+                    onClick={() => setServicesDropdown(false)}
+                  >
+                    <Database className="mr-3 h-4 w-4 text-red-500" />
+                    ERP/CRM Development
+                  </Link>
+                  <Link
+                    to="/services/ai-automation"
+                    className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded transition-colors duration-200 cursor-pointer"
+                    onClick={() => setServicesDropdown(false)}
+                  >
+                    <Cpu className="mr-3 h-4 w-4 text-indigo-500" />
+                    AI Automation
+                  </Link>
+                  <Link
+                    to="/services/wordpress"
+                    className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded transition-colors duration-200 cursor-pointer"
+                    onClick={() => setServicesDropdown(false)}
+                  >
+                    <Globe className="mr-3 h-4 w-4 text-cyan-500" />
+                    Wordpress Development
+                  </Link>
+                  <Link
+                    to="/services/ai-agent"
+                    className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded transition-colors duration-200 cursor-pointer"
+                    onClick={() => setServicesDropdown(false)}
+                  >
+                    <Bot className="mr-3 h-4 w-4 text-pink-500" />
+                    AI Agent
+                  </Link>
+                  <Link
+                    to="/services/voice-automation"
+                    className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded transition-colors duration-200 cursor-pointer"
+                    onClick={() => setServicesDropdown(false)}
+                  >
+                    <Mic className="mr-3 h-4 w-4 text-teal-500" />
+                    Voice Automation
+                  </Link>
+                  <Link
+                    to="/services/n8n-workflow"
+                    className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded transition-colors duration-200 cursor-pointer"
+                    onClick={() => setServicesDropdown(false)}
+                  >
+                    <Workflow className="mr-3 h-4 w-4 text-amber-500" />
+                    N8N Workflow
+                  </Link>
                 </div>
               </div>
             </div>
-          </div>
 
-           <div className="relative group">
-            <div className="flex items-center gap-1 cursor-pointer hover:text-yellow-400">
-              <span>Contact us</span>
-              <span>▼</span>
+            <Link
+              to="/clients"
+              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+              onClick={() => {
+                setServicesDropdown(false);
+                setStoriesDropdown(false);
+              }}
+            >
+              Our Clients
+            </Link>
+
+            <div className="relative">
+              <button
+                onClick={() => {
+                  setServicesDropdown(false);
+                  setStoriesDropdown(!storiesDropdown);
+                }}
+                onMouseEnter={() => setStoriesDropdown(true)}
+                onMouseLeave={() => setStoriesDropdown(false)}
+                className="flex items-center text-gray-700 hover:text-blue-600 font-medium transition-colors"
+              >
+                Our Projects
+                {/* {storiesDropdown ? (
+                  <ChevronUp className="ml-1 h-4 w-4 transition-transform duration-300" />
+                ) : (
+                  <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-300" />
+                )} */}
+              </button>
+
+              {/* {storiesDropdown && (
+                <div
+                  onMouseEnter={() => setStoriesDropdown(true)}
+                  onMouseLeave={() => setStoriesDropdown(false)}
+                  className={`absolute top-full left-0 mt-2 bg-white rounded-md shadow-lg z-50 transition-all duration-300 ease-in-out ${storiesDropdown
+                    ? 'opacity-100 transform translate-y-0 visible'
+                    : 'opacity-0 transform -translate-y-2 invisible'
+                    }`}
+                >
+                  <Link
+                    to="/stories/case-studies"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded transition-colors duration-200 cursor-pointer"
+                    onClick={() => setStoriesDropdown(false)}
+                  >
+                    Case Studies
+                  </Link>
+                  <Link
+                    to="/stories/testimonials"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded transition-colors duration-200 cursor-pointer"
+                    onClick={() => setStoriesDropdown(false)}
+                  >
+                    Testimonials
+                  </Link>
+                  <Link
+                    to="/stories/portfolio"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded transition-colors duration-200 cursor-pointer"
+                    onClick={() => setStoriesDropdown(false)}
+                  >
+                    Portfolio
+                  </Link>
+                </div>
+              )} */}
             </div>
 
-            <div className="absolute left-0 top-full opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 mt-3 w-[400px] bg-[#5A4845] text-white p-6 rounded-xl shadow-xl z-50">
-              <div className="flex gap-3 hover:bg-white/10 p-3 rounded-lg cursor-pointer">
-                <div className="bg-white p-3 rounded-md text-black">
-                  <IoIosPeople size={22} />
-                </div>
-                <div>
-                  <h3 className="font-semibold">Our Clients</h3>
-                  <p className="text-[13px] text-gray-300">Brands that trust us</p>
-                </div>
-              </div>
-            </div>
+            <Link
+              to="/contact"
+              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+              onClick={() => {
+                setServicesDropdown(false);
+                setStoriesDropdown(false);
+              }}
+            >
+              Contact
+            </Link>
           </div>
-        </nav>
 
-        {/* CTA BUTTON */}
-        <div className="hidden md:flex items-center bg-yellow-400 px-6 py-3 rounded-sm cursor-pointer">
-          <span className="text-white font-semibold tracking-wide">Let's Talk</span>
+          {/* Mobile menu button */}
+          <div className="md:hidden">
+            <button className="text-gray-700 hover:text-blue-600">
+              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
         </div>
-
-        {/* Mobile menu button */}
-        <button onClick={() => setOpen(!open)} className="md:hidden text-white">
-          <Menu size={28} />
-        </button>
       </div>
-
-      {/* Mobile Menu */}
-      {open && (
-        <nav className="md:hidden bg-black p-6 text-white space-y-4">
-          <a href="#">Home</a>
-          <a href="#">Company</a>
-          <a href="#">Services</a>
-          <a href="#">Projects</a>
-          <a href="#">Contact</a>
-        </nav>
-      )}
-    </header>
+    </nav>
   );
-}
+};
+
+export default Navbar;
