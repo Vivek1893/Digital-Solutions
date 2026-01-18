@@ -1,228 +1,432 @@
-import React, { useState } from "react";
-import { FiChevronRight, FiExternalLink } from "react-icons/fi";
-import { MdFilterList } from "react-icons/md";
-import Footer from "../components/Footer";
-import Testimonials from "../components/Testimonials";
+import React from "react";
 
-export default function Portfolio() {
-  const [filter, setFilter] = useState("all");
+// Add custom styles for 3D flip effect
+const flipStyles = `
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  .transform-style-preserve-3d {
+    transform-style: preserve-3d;
+  }
+  .group:hover .group-hover\\:rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+`;
 
-  const projects = [
-    {
-      id: 1,
-      title: "E-Commerce Platform",
-      category: "web",
-      description: "Modern e-commerce solution with payment integration and inventory management",
-      image: "/images/img-1.png",
-      tags: ["React", "Node.js", "MongoDB"]
-    },
-    {
-      id: 2,
-      title: "Mobile Banking App",
-      category: "app",
-      description: "Secure banking application with biometric authentication and real-time transactions",
-      image: "/images/img6.png",
-      tags: ["React Native", "iOS", "Android"]
-    },
-    {
-      id: 3,
-      title: "Corporate Website",
-      category: "web",
-      description: "Professional corporate website with CMS integration and responsive design",
-      image: "/images/banner-image-8.png",
-      tags: ["Next.js", "WordPress", "Tailwind"]
-    },
-    {
-      id: 4,
-      title: "Fitness Tracking App",
-      category: "app",
-      description: "Health and fitness app with activity tracking and social features",
-      image: "/images/img-1.png",
-      tags: ["Flutter", "Firebase", "iOS"]
-    },
-    {
-      id: 5,
-      title: "Restaurant Dashboard",
-      category: "design",
-      description: "UI/UX design for restaurant management system with analytics dashboard",
-      image: "/images/img6.png",
-      tags: ["Figma", "UI/UX", "Design System"]
-    },
-    {
-      id: 6,
-      title: "SaaS Platform",
-      category: "web",
-      description: "Cloud-based SaaS platform with subscription management and analytics",
-      image: "/images/banner-image-8.png",
-      tags: ["Vue.js", "Python", "AWS"]
-    }
-  ];
 
-  const filteredProjects = filter === "all" 
-    ? projects 
-    : projects.filter(project => project.category === filter);
-
-  const categories = [
-    { id: "all", name: "All Projects" },
-    { id: "web", name: "Web Development" },
-    { id: "app", name: "App Development" },
-    { id: "design", name: "UI/UX Design" }
-  ];
-
+export default function HeroSection() {
   return (
-    <div className="bg-white">
-      {/* Header Section */}
+    <>
+      <style>{flipStyles}</style>
       <section
-        className="w-full h-[400px] bg-cover bg-center relative"
-        style={{ backgroundImage: `url('/images/banner-image-8.png')` }}
+        className="relative w-full  bg-cover bg-center overflow-hidden"
+      // style={{
+      //   backgroundImage:
+      //     "url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d')",
       >
-        <div className="absolute inset-0 bg-black/50"></div>
-        <div className="absolute inset-0 flex flex-col items-center justify-center">
-          <h1 className="text-5xl font-bold text-white mb-6">Portfolio</h1>
-          <div className="flex items-center gap-3 text-white text-lg">
-            <a href="/" className="hover:text-yellow-400">
-              Home
-            </a>
-            <span>/</span>
-            <span className="text-yellow-400">Portfolio</span>
-          </div>
-        </div>
-      </section>
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-[#0F172A]/10"></div>
 
-      {/* Main Content Section */}
-      <section className="py-20 px-6">
-        <div className="max-w-[1300px] mx-auto">
-          {/* Title Section */}
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-[#1a1a1a] mb-4">
-              See Our{" "}
-              <span className="bg-[#2a2a2a] text-white px-4 py-2 rounded-lg inline-block">
-                Recent Projects
-              </span>
-            </h2>
-            <p className="text-gray-600 text-lg mt-6 max-w-2xl mx-auto">
-              Explore our portfolio of successful projects across web development,
-              mobile apps, and UI/UX design.
-            </p>
-          </div>
+        {/* Content */}
+        <div className="relative max-w-9xl mx-auto px-6 py-10">
+          <div className="grid lg:grid-cols-2 gap-14 items-center">
 
-          {/* Filter Section */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            {categories.map((cat) => (
-              <button
-                key={cat.id}
-                onClick={() => setFilter(cat.id)}
-                className={`px-6 py-3 rounded-full font-semibold transition-all ${
-                  filter === cat.id
-                    ? "bg-[#1a1a1a] text-white"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                }`}
-              >
-                {cat.name}
-              </button>
-            ))}
-          </div>
+            {/* LEFT CONTENT */}
+            <div className="text-white animate-fadeInUp ml-30">
+              <h1 className="text-[42px] lg:text-[52px]  -mt-35 font-bold text-black leading-tight">
+                Professional AI Automation Services
+              </h1>
 
-          {/* Projects Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-            {filteredProjects.map((project) => (
-              <div
-                key={project.id}
-                className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow overflow-hidden group"
-              >
-                <div className="relative overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <button className="bg-white text-[#1a1a1a] px-6 py-3 rounded-full font-semibold flex items-center gap-2 hover:bg-yellow-400 transition-all">
-                      View Project
-                      <FiExternalLink size={20} />
-                    </button>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold text-[#1a1a1a] mb-3">
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-600 mb-4 leading-relaxed">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag, idx) => (
-                      <span
-                        key={idx}
-                        className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+              <div className="w-16 h-[3px] bg-blue-500 my-6"></div>
 
-          {/* Stats Section */}
-          <div className="bg-gray-50 rounded-2xl p-12 mb-20">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
-              <div>
-                <h3 className="text-5xl font-bold text-[#1a1a1a] mb-2">200+</h3>
-                <p className="text-gray-600 text-lg">Projects Completed</p>
-              </div>
-              <div>
-                <h3 className="text-5xl font-bold text-[#1a1a1a] mb-2">150+</h3>
-                <p className="text-gray-600 text-lg">Happy Clients</p>
-              </div>
-              <div>
-                <h3 className="text-5xl font-bold text-[#1a1a1a] mb-2">50+</h3>
-                <p className="text-gray-600 text-lg">Team Members</p>
-              </div>
-              <div>
-                <h3 className="text-5xl font-bold text-[#1a1a1a] mb-2">10+</h3>
-                <p className="text-gray-600 text-lg">Years Experience</p>
+              <p className="text-lg text-blue-900 max-w-xl">
+                We implement cutting-edge AI automation solutions that streamline workflows, reduce costs, and transform your business operations with intelligent technology.
+              </p>
+
+              <div className="mt-8 border-l-4 border-blue-500 pl-6 italic text-blue-900">
+                We focus on intelligent automation and measurable business transformation.
               </div>
             </div>
+
+            {/* RIGHT IMAGE */}
+            <div className="overflow-hidden bg-transparent">
+              <img
+                src="/servicesimg/web.png"
+                alt="AI Automation"
+                className="w-400 h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* BOTTOM WAVE */}
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+          <svg
+            viewBox="0 0 1000 100"
+            preserveAspectRatio="none"
+            className="w-full h-[80px] rotate-180"
+          >
+            <path
+              d="M421.9,6.5c22.6-2.5,51.5,0.4,75.5,5.3c23.6,4.9,70.9,23.5,100.5,35.7
+              c75.8,32.2,133.7,44.5,192.6,49.7
+              c23.6,2.1,48.7,3.5,103.4-2.5
+              c54.7-6,106.2-25.6,106.2-25.6V0H0v207.3z"
+              fill="#ffffff"
+            />
+          </svg>
+        </div>
+      </section>
+
+      {/* ABOUT SECTION */}
+      <section className="w-full bg-white py-14">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+
+            {/* LEFT IMAGE */}
+            <div className="flex justify-center">
+              <img
+                src="/servicesimg/web.png"
+                alt="AI Automation Illustration"
+                className="max-w-[480px] w-full"
+              />
+            </div>
+
+            {/* RIGHT CONTENT */}
+            <div>
+
+              <h2 className=" text-[38px] leading-tight font-bold text-[#0F2A56]">
+                Reasons To Choose Us
+                as Your
+                AI Automation Partner
+              </h2>
+
+              <p className="mt-6 text-gray-600 leading-relaxed text-[15px]">
+                We are a leading AI automation company helping businesses leverage artificial intelligence to
+                automate processes, enhance decision-making, and drive innovation. Our solutions are built on cutting-edge
+                machine learning, natural language processing, and robotic process automation.
+              </p>
+
+              <p className="mt-4 text-gray-600 leading-relaxed text-[15px]">
+                Our AI experts specialize in intelligent automation, predictive analytics, chatbot development, and
+                workflow optimization. From initial AI strategy and process analysis to implementation and continuous improvement,
+                we provide end-to-end solutions focused on efficiency, accuracy, and business growth.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* AI AUTOMATION PROCESS SECTION */}
+      <WebDesignProcess />
+      {/* =============================================================================================== */}
+      {/* AI AUTOMATION ADVANTAGES SECTION */}
+      <section className="w-full bg-gray-50 py-20 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
+          {/* Heading */}
+          <h2 className="text-4xl font-semibold text-center text-[#243B6B] mb-16">
+            Unlocking the Advantages of Professional AI Automation
+          </h2>
+
+          {/* First Row - 3 Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            {/* Intelligent Process Automation */}
+            <FlipBox
+              icon="/images/global-network.png"
+              iconBg="bg-blue-100"
+              title="Intelligent Process Automation"
+              description="Advanced AI-powered automation that streamlines complex workflows, reduces manual intervention, and eliminates repetitive tasks across your organization."
+            />
+
+            {/* Predictive Analytics */}
+            <FlipBox
+              icon="/images/user-experience.png"
+              iconBg="bg-green-100"
+              title="Predictive Analytics & Insights"
+              description="Machine learning algorithms that analyze data patterns, predict future trends, and provide actionable insights for strategic decision-making."
+            />
+
+            {/* Cost Reduction */}
+            <FlipBox
+              icon="/images/marketing.png"
+              iconBg="bg-purple-100"
+              title="Significant Cost Reduction"
+              description="Automated processes that reduce operational costs, minimize human errors, and optimize resource allocation for maximum efficiency."
+            />
           </div>
 
-          {/* CTA Section */}
-          <div className="text-center">
-            <h3 className="text-3xl font-bold text-[#1a1a1a] mb-6">
-              Ready to Start Your Project?
-            </h3>
-            <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-              Let's discuss your idea and create something amazing together.
+          {/* Second Row - 3 Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+            {/* Natural Language Processing */}
+            <FlipBox
+              icon="/images/affiliate-marketing.png"
+              iconBg="bg-orange-100"
+              title="Natural Language Processing"
+              description="Advanced NLP solutions that enable human-like text understanding, sentiment analysis, and intelligent communication systems."
+            />
+
+            {/* 24/7 Operations */}
+            <FlipBox
+              icon="/images/competitive-advantage.png"
+              iconBg="bg-red-100"
+              title="24/7 Automated Operations"
+              description="Round-the-clock AI systems that continuously monitor, optimize, and maintain business processes without human intervention."
+            />
+
+            {/* Scalable AI Solutions */}
+            <FlipBox
+              icon="/images/customer-service.png"
+              iconBg="bg-teal-100"
+              title="Scalable AI Solutions"
+              description="Flexible AI architectures that grow with your business, adapting to increasing complexity and evolving automation needs."
+            />
+          </div>
+        </div>
+      </section>
+
+
+      {/* TECH STACK SECTION */}
+      <section className="w-full bg-white py-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-[#0F172A] mb-4">
+              AI Automation Technology Stack
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Cutting-edge AI technologies and frameworks we use to build intelligent automation solutions
             </p>
-            <button className="flex items-center gap-2 bg-[#1a1a1a] hover:bg-[#333333] text-white font-semibold px-8 py-4 rounded-full transition-all mx-auto">
-              Get Started Today
-              <FiChevronRight size={20} />
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+            {[
+              { name: "TensorFlow", category: "ML Framework", icon: "🧠" },
+              { name: "PyTorch", category: "ML Framework", icon: "🔥" },
+              { name: "OpenAI", category: "AI Platform", icon: "🤖" },
+              { name: "Azure AI", category: "Cloud AI", icon: "☁️" },
+              { name: "Python", category: "Programming", icon: "🐍" },
+              { name: "RPA", category: "Automation", icon: "⚙️" },
+              { name: "Dialogflow", category: "NLP", icon: "�" },
+              { name: "AWS SageMaker", category: "ML Platform", icon: "🔧" },
+              { name: "Google Cloud AI", category: "Cloud AI", icon: "🌩️" },
+              { name: "IBM Watson", category: "AI Platform", icon: "🧬" },
+              { name: "UiPath", category: "RPA", icon: "🎯" },
+              { name: "Hugging Face", category: "NLP", icon: "🤗" }
+            ].map((tech, index) => (
+              <div key={index} className="text-center group">
+                <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-blue-50 to-indigo-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <span className="text-3xl">{tech.icon}</span>
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-1">{tech.name}</h3>
+                <p className="text-sm text-gray-500">{tech.category}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CLIENT LOGOS SECTION */}
+      <section className="w-full bg-gray-50 py-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-[#0F172A] mb-4">
+              Trusted by Leading AI-Driven Companies
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              We've helped businesses across various industries transform their operations with our AI automation solutions
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3  items-center">
+            {[
+              { name: "Site Invention", logo: "/images/logo.jpeg" },
+              { name: "TRIVEXON", logo: "/clients/trivexon.png" },
+              { name: "SKILLNOXERA", logo: "/clients/skillnoxera.png" },
+
+            ].map((client, index) => (
+              <div key={index} className="flex items-center justify-center">
+                <div className="w-52 h-40 bg-white rounded-lg shadow-sm flex items-center justify-center hover:shadow-md transition-shadow duration-300 border border-gray-100 mx-auto">
+                  <img
+                    src={client.logo}
+                    alt={client.name}
+                    className="max-w-full max-h-full object-contain"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.nextElementSibling.style.display = 'flex';
+                    }}
+                  />
+                  <div className="hidden items-center justify-center w-full h-full">
+                    <div className="text-center">
+                      <div className="text-2xl mb-1">🏢</div>
+                      <div className="text-xs font-medium text-gray-600">{client.name}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action Section */}
+      <section className="w-full bg-white py-20 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <div className="relative z-10">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] mb-4">
+              Ready to Transform Your Business with
+              <br /> Professional AI Automation?
+            </h2>
+            <p className="text-gray-600 mb-8">
+              Implement intelligent automation solutions that streamline workflows, reduce costs, and drive innovation across your organization.
+            </p>
+            <button className="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg">
+              Get Free AI Automation Consultation
             </button>
           </div>
+
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div
+              className="w-full h-full bg-no-repeat bg-center opacity-10"
+              style={{
+                backgroundImage: "url('/images/dot-grid.png')",
+                backgroundSize: "50px 50px",
+              }}
+            ></div>
+          </div>
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <Testimonials />
+    </>
+  );
+}
 
-      {/* CTA Section */}
-      <section className="py-20 px-6 bg-[#1a1a1a]">
-        <div className="max-w-[1300px] mx-auto text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">
-            Let's Create Something Amazing Together
-          </h2>
-          <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-            Ready to add your project to our portfolio? Let's discuss your ideas.
-          </p>
-          <button className="bg-yellow-400 hover:bg-yellow-500 text-[#1a1a1a] font-semibold px-10 py-4 rounded-full transition-all text-lg">
-            Start Your Project
-          </button>
+/* Flip Box Component */
+function FlipBox({ icon, iconBg, title, description }) {
+  return (
+    <div className="group relative  h-65 perspective-1000">
+      <div className="relative w-full h-full transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-y-180">
+        {/* Front Side */}
+        <div className="absolute w-full h-full backface-hidden bg-white rounded-xl shadow-lg p-8">
+          <div className="text-center h-full flex flex-col justify-center">
+            <div className={`w-20 h-20 mx-auto mb-6 ${iconBg} rounded-full flex items-center justify-center`}>
+              <img src={icon} alt={title} className="w-12 h-12" />
+            </div>
+            <h3 className="text-xl font-bold text-gray-800 mb-4">{title}</h3>
+            <p className="text-gray-600 leading-relaxed text-sm">
+              {description.substring(0, 100)}...
+            </p>
+
+          </div>
         </div>
-      </section>
 
-      <Footer />
+        {/* Back Side */}
+        <div className="absolute w-full h-full backface-hidden rotate-y-180 bg-blue-500 rounded-xl shadow-lg p-8">
+          <div className="text-center h-full flex flex-col justify-center">
+            <h3 className="text-xl font-bold text-white mb-6">{title}</h3>
+            <p className="text-white leading-relaxed">
+              {description}
+            </p>
+
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
 
+/* Step Card */
+function Step({ step, title, logo, color, className = "" }) {
+  return (
+    <div className={`flex flex-col items-center text-center w-44 ${className}`}>
+      <span className="text-sm font-semibold text-blue-600 mb-3">
+        {step}
+      </span>
+
+      <div
+        className={`w-20 h-25 flex items-center justify-center rounded-xl shadow-md ${color}`}
+      >
+        <img
+          src={logo}
+          alt={title}
+          className="w-10 h-10 object-contain"
+        />
+      </div>
+
+      <p className="mt-4 text-sm font-medium text-gray-700 leading-snug">
+        {title}
+      </p>
+    </div>
+  );
+}
+
+function WebDesignProcess() {
+  return (
+    <section className="w-full bg-white relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 text-center relative">
+
+        {/* Heading */}
+        <h2 className="text-4xl font-semibold text-[#243B6B] mb-24">
+          Our AI Automation Process at
+          <span className="font-bold"> Site Invention</span>
+        </h2>
+
+        {/* Arc Line */}
+        <div className="absolute left-1/2 top-[220px] -translate-x-1/2 w-[85%] h-[200px] border-t border-dashed border-gray-800 rounded-t-full" />
+
+        {/* Steps */}
+        <div className="relative flex justify-between items-start">
+
+          {/* STEP 1 */}
+          <Step
+            step="STEP 1"
+            title="AI Strategy & Assessment"
+            logo="/images/ser1.png"
+            color="bg-orange-50 text-orange-500"
+            className="mt-40"
+          />
+
+          {/* STEP 2 */}
+          <Step
+            step="STEP 2"
+            title="Process Analysis & Design"
+            logo="/images/ser2.png"
+            color="bg-blue-50 text-blue-500"
+            className="mt-10"
+          />
+
+          {/* STEP 3 */}
+          <Step
+            step="STEP 3"
+            title="AI Model Development"
+            logo="/images/ser3.png"
+            color="bg-green-50 text-green-500"
+            className="-mt-10"
+          />
+
+          {/* STEP 4 */}
+          <Step
+            step="STEP 4"
+            title="Integration & Testing"
+            logo="/images/ser4.png"
+            color="bg-sky-50 text-sky-500"
+            className="mt-10"
+          />
+
+          {/* STEP 5 */}
+          <Step
+            step="STEP 5"
+            title="Deployment & Optimization"
+            logo="/images/ser5.png"
+            color="bg-pink-50 text-pink-500"
+            className="mt-40"
+          />
+
+        </div>
+      </div>
+    </section>
+  );
+}

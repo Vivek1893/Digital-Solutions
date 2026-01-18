@@ -1,291 +1,436 @@
 import React from "react";
-import { FiChevronRight } from "react-icons/fi";
-import { MdCheckCircle, MdLightbulb, MdDesignServices, MdCode, MdBugReport, MdRocketLaunch, MdSupport } from "react-icons/md";
-import { FaCogs } from "react-icons/fa";
-import Footer from "../components/Footer";
-import Testimonials from "../components/Testimonials";
 
-export default function Process() {
-  const steps = [
-    {
-      icon: <MdLightbulb className="w-10 h-10" />,
-      step: "01",
-      title: "Discovery & Planning",
-      description: "We start by understanding your business goals, target audience, and project requirements. This phase includes research, strategy, and detailed planning.",
-      color: "bg-yellow-100 text-yellow-600"
-    },
-    {
-      icon: <MdDesignServices className="w-10 h-10" />,
-      step: "02",
-      title: "Design & Prototyping",
-      description: "Our design team creates wireframes, mockups, and interactive prototypes. We iterate based on your feedback to ensure the perfect user experience.",
-      color: "bg-blue-100 text-blue-600"
-    },
-    {
-      icon: <MdCode className="w-10 h-10" />,
-      step: "03",
-      title: "Development",
-      description: "We build your solution using modern technologies and best practices. Regular updates and communication keep you informed throughout the process.",
-      color: "bg-green-100 text-green-600"
-    },
-    {
-      icon: <MdBugReport className="w-10 h-10" />,
-      step: "04",
-      title: "Testing & QA",
-      description: "Comprehensive testing ensures quality, performance, and security. We test across devices, browsers, and scenarios to catch issues early.",
-      color: "bg-purple-100 text-purple-600"
-    },
-    {
-      icon: <MdRocketLaunch className="w-10 h-10" />,
-      step: "05",
-      title: "Deployment & Launch",
-      description: "We handle the deployment process smoothly and ensure everything works perfectly in production. Your project goes live with confidence.",
-      color: "bg-red-100 text-red-600"
-    },
-    {
-      icon: <MdSupport className="w-10 h-10" />,
-      step: "06",
-      title: "Maintenance & Support",
-      description: "After launch, we provide ongoing support, updates, and improvements to keep your solution running smoothly and meeting your evolving needs.",
-      color: "bg-indigo-100 text-indigo-600"
-    }
-  ];
+// Add custom styles for 3D flip effect
+const flipStyles = `
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  .transform-style-preserve-3d {
+    transform-style: preserve-3d;
+  }
+  .group:hover .group-hover\\:rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+`;
 
-  const methodologies = [
-    {
-      title: "Agile Development",
-      description: "We use agile methodologies for flexibility and rapid iterations. Regular sprints keep projects on track and adaptable to changes.",
-      icon: "🔄"
-    },
-    {
-      title: "Client Collaboration",
-      description: "You're involved every step of the way. Regular meetings, feedback sessions, and transparent communication ensure we build exactly what you need.",
-      icon: "🤝"
-    },
-    {
-      title: "Quality Focus",
-      description: "Quality is built into every phase. Code reviews, automated testing, and thorough QA ensure we deliver reliable, bug-free solutions.",
-      icon: "✓"
-    }
-  ];
 
+export default function HeroSection() {
   return (
-    <div className="bg-white">
-      {/* Header Section */}
+    <>
+      <style>{flipStyles}</style>
       <section
-        className="w-full h-[400px] bg-cover bg-center relative"
-        style={{ backgroundImage: `url('/images/banner-image-8.png')` }}
+        className="relative w-full  bg-cover bg-center overflow-hidden"
+      // style={{
+      //   backgroundImage:
+      //     "url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d')",
       >
-        <div className="absolute inset-0 bg-black/50"></div>
-        <div className="absolute inset-0 flex flex-col items-center justify-center">
-          <h1 className="text-5xl font-bold text-white mb-6">Development Process</h1>
-          <div className="flex items-center gap-3 text-white text-lg">
-            <a href="/" className="hover:text-yellow-400">
-              Home
-            </a>
-            <span>/</span>
-            <span className="text-yellow-400">Development Process</span>
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-[#0F172A]/10"></div>
+
+        {/* Content */}
+        <div className="relative max-w-9xl mx-auto px-6 py-10">
+          <div className="grid lg:grid-cols-2 gap-14 items-center">
+
+            {/* LEFT CONTENT */}
+            <div className="text-white animate-fadeInUp ml-30">
+              <h1 className="text-[42px] lg:text-[52px]  -mt-35 font-bold text-black leading-tight">
+                Result-Driven SEO Agency Trusted by Growing Brands
+              </h1>
+
+              <div className="w-16 h-[3px] bg-blue-500 my-6"></div>
+
+              <p className="text-lg text-blue-900 max-w-xl">
+                We help businesses rank higher, attract quality traffic, and convert leads through proven SEO strategies.
+              </p>
+
+              <div className="mt-8 border-l-4 border-blue-500 pl-6 italic text-blue-900">
+                We focus on long-term partnerships and measurable business
+                outcomes.
+              </div>
+            </div>
+
+            {/* RIGHT IMAGE */}
+            <div className="overflow-hidden bg-transparent">
+              <img
+                src="/servicesimg/web.png"
+                alt="web design"
+                className="w-400 h-full object-cover"
+              />
+            </div>
           </div>
+        </div>
+
+        {/* BOTTOM WAVE */}
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+          <svg
+            viewBox="0 0 1000 100"
+            preserveAspectRatio="none"
+            className="w-full h-[80px] rotate-180"
+          >
+            <path
+              d="M421.9,6.5c22.6-2.5,51.5,0.4,75.5,5.3c23.6,4.9,70.9,23.5,100.5,35.7
+              c75.8,32.2,133.7,44.5,192.6,49.7
+              c23.6,2.1,48.7,3.5,103.4-2.5
+              c54.7-6,106.2-25.6,106.2-25.6V0H0v207.3z"
+              fill="#ffffff"
+            />
+          </svg>
         </div>
       </section>
 
-      {/* Main Content Section */}
-      <section className="py-20 px-6">
-        <div className="max-w-[1300px] mx-auto">
-          {/* Title Section */}
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-[#1a1a1a] mb-4">
-              From Idea to{" "}
-              <span className="bg-[#2a2a2a] text-white px-4 py-2 rounded-lg inline-block">
-                Delivery
-              </span>
-            </h2>
-            <p className="text-gray-600 text-lg mt-6 max-w-2xl mx-auto">
-              Our proven development process ensures your project is delivered on time,
-              on budget, and exceeds expectations.
-            </p>
-          </div>
+      {/* ABOUT SECTION */}
+      <section className="w-full bg-white py-14">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-          {/* Process Steps */}
-          <div className="mb-20">
-            <div className="space-y-12">
-              {steps.map((item, index) => (
-                <div
-                  key={index}
-                  className={`grid grid-cols-1 lg:grid-cols-12 gap-8 items-center ${
-                    index % 2 === 1 ? "lg:flex-row-reverse" : ""
-                  }`}
-                >
-                  {/* Left Side - Content */}
-                  <div className={`lg:col-span-7 ${index % 2 === 1 ? "lg:order-2" : ""}`}>
-                    <div className="flex items-center gap-4 mb-6">
-                      <div className={`${item.color} w-16 h-16 rounded-full flex items-center justify-center`}>
-                        {item.icon}
-                      </div>
-                      <div>
-                        <span className="text-2xl font-bold text-gray-400">{item.step}</span>
-                        <h3 className="text-3xl font-bold text-[#1a1a1a]">{item.title}</h3>
-                      </div>
-                    </div>
-                    <p className="text-gray-600 text-lg leading-relaxed">
-                      {item.description}
-                    </p>
-                    {index < steps.length - 1 && (
-                      <div className="mt-8 flex justify-center lg:hidden">
-                        <div className="w-1 h-12 bg-gray-300"></div>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Right Side - Visual */}
-                  <div className={`lg:col-span-5 ${index % 2 === 1 ? "lg:order-1" : ""}`}>
-                    <div className={`${item.color} p-12 rounded-2xl text-center`}>
-                      <div className="text-6xl mb-4">{item.icon}</div>
-                      <h4 className="text-2xl font-bold text-[#1a1a1a]">{item.title}</h4>
-                    </div>
-                  </div>
-                </div>
-              ))}
+            {/* LEFT IMAGE */}
+            <div className="flex justify-center">
+              <img
+                src="/servicesimg/web.png"
+                alt="Website Design Illustration"
+                className="max-w-[480px] w-full"
+              />
             </div>
-          </div>
 
-          {/* Methodologies Section */}
-          <div className="bg-gray-50 rounded-2xl p-12 mb-20">
-            <div className="text-center mb-12">
-              <h3 className="text-4xl font-bold text-[#1a1a1a] mb-4">
-                Our Development Methodologies
-              </h3>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                Proven approaches that ensure successful project delivery
+            {/* RIGHT CONTENT */}
+            <div>
+
+              <h2 className=" text-[38px] leading-tight font-bold text-[#0F2A56]">
+                Reasons To Choose Us
+                as Your
+                SEO Services
+              </h2>
+
+              <p className="mt-6 text-gray-600 leading-relaxed text-[15px]">
+                We are a performance-driven SEO services company helping businesses improve
+                search engine rankings, increase organic traffic, and generate high-quality
+                leads. Our SEO strategies are built on in-depth keyword research, technical
+                optimization, and data-backed insights to deliver measurable results.
+              </p>
+
+              <p className="mt-4 text-gray-600 leading-relaxed text-[15px]">
+                Our SEO experts specialize in on-page SEO, technical SEO, content
+                optimization, and authoritative link building using proven white-hat
+                practices. From website audits and competitor analysis to continuous
+                performance tracking and reporting, we provide end-to-end SEO solutions
+                focused on long-term visibility, growth, and ROI.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {methodologies.map((method, index) => (
-                <div key={index} className="bg-white p-8 rounded-xl">
-                  <div className="text-5xl mb-4">{method.icon}</div>
-                  <h4 className="text-xl font-bold text-[#1a1a1a] mb-4">
-                    {method.title}
-                  </h4>
-                  <p className="text-gray-600 leading-relaxed">
-                    {method.description}
-                  </p>
-                </div>
-              ))}
-            </div>
+      {/* WEB DESIGN PROCESS SECTION */}
+      <WebDesignProcess />
+      {/* =============================================================================================== */}
+      {/* SEO ADVANTAGES SECTION */}
+      <section className="w-full bg-gray-50 py-20 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
+          {/* Heading */}
+          <h2 className="text-4xl font-semibold text-center text-[#243B6B] mb-16">
+            Unlocking the Advantages of Professional SEO Services
+          </h2>
+
+          {/* First Row - 3 Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            {/* Increased Online Visibility */}
+            <FlipBox
+              icon="/images/global-network.png"
+              iconBg="bg-blue-100"
+              title="Increased Online Visibility"
+              description="SEO helps your business rank higher on search engines, increasing online visibility and ensuring your brand reaches the right audience actively searching for your products or services."
+            />
+
+            {/* Higher Organic Traffic */}
+            <FlipBox
+              icon="/images/user-experience.png"
+              iconBg="bg-green-100"
+              title="Higher Organic Traffic"
+              description="With targeted keyword optimization and quality content, SEO drives consistent organic traffic to your website without relying heavily on paid advertising."
+            />
+
+            {/* Cost-Effective Growth */}
+            <FlipBox
+              icon="/images/marketing.png"
+              iconBg="bg-purple-100"
+              title="Cost-Effective Growth"
+              description="SEO is one of the most cost-effective digital marketing strategies, delivering long-term results, higher ROI, and sustainable business growth over time."
+            />
           </div>
 
-          {/* What We Deliver */}
-          <div className="mb-20">
-            <div className="text-center mb-12">
-              <h3 className="text-4xl font-bold text-[#1a1a1a] mb-4">
-                What You Can Expect
-              </h3>
-            </div>
+          {/* Second Row - 3 Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+            {/* Better Lead Quality */}
+            <FlipBox
+              icon="/images/affiliate-marketing.png"
+              iconBg="bg-orange-100"
+              title="High-Quality Lead Generation"
+              description="SEO attracts users with strong intent, resulting in better-quality leads, higher engagement, and improved conversion rates for your business."
+            />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-xl">
-                <h4 className="text-2xl font-bold text-[#1a1a1a] mb-6">
-                  Throughout the Process
-                </h4>
-                <ul className="space-y-4">
-                  <li className="flex gap-3 items-start">
-                    <MdCheckCircle className="text-green-600 text-2xl mt-1 flex-shrink-0" />
-                    <span className="text-gray-700 text-lg">
-                      Regular progress updates and demos
-                    </span>
-                  </li>
-                  <li className="flex gap-3 items-start">
-                    <MdCheckCircle className="text-green-600 text-2xl mt-1 flex-shrink-0" />
-                    <span className="text-gray-700 text-lg">
-                      Transparent communication at every stage
-                    </span>
-                  </li>
-                  <li className="flex gap-3 items-start">
-                    <MdCheckCircle className="text-green-600 text-2xl mt-1 flex-shrink-0" />
-                    <span className="text-gray-700 text-lg">
-                      Opportunity to provide feedback and request changes
-                    </span>
-                  </li>
-                  <li className="flex gap-3 items-start">
-                    <MdCheckCircle className="text-green-600 text-2xl mt-1 flex-shrink-0" />
-                    <span className="text-gray-700 text-lg">
-                      Documentation and training materials
-                    </span>
-                  </li>
-                </ul>
-              </div>
+            {/* Competitive Edge */}
+            <FlipBox
+              icon="/images/competitive-advantage.png"
+              iconBg="bg-red-100"
+              title="Competitive Search Advantage"
+              description="A strong SEO strategy helps you outperform competitors by securing top search positions and strengthening your authority within your industry."
+            />
 
-              <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-8 rounded-xl">
-                <h4 className="text-2xl font-bold text-[#1a1a1a] mb-6">
-                  Final Deliverables
-                </h4>
-                <ul className="space-y-4">
-                  <li className="flex gap-3 items-start">
-                    <MdCheckCircle className="text-green-600 text-2xl mt-1 flex-shrink-0" />
-                    <span className="text-gray-700 text-lg">
-                      Fully functional, tested solution
-                    </span>
-                  </li>
-                  <li className="flex gap-3 items-start">
-                    <MdCheckCircle className="text-green-600 text-2xl mt-1 flex-shrink-0" />
-                    <span className="text-gray-700 text-lg">
-                      Complete source code and documentation
-                    </span>
-                  </li>
-                  <li className="flex gap-3 items-start">
-                    <MdCheckCircle className="text-green-600 text-2xl mt-1 flex-shrink-0" />
-                    <span className="text-gray-700 text-lg">
-                      Deployment and hosting setup
-                    </span>
-                  </li>
-                  <li className="flex gap-3 items-start">
-                    <MdCheckCircle className="text-green-600 text-2xl mt-1 flex-shrink-0" />
-                    <span className="text-gray-700 text-lg">
-                      Ongoing support and maintenance options
-                    </span>
-                  </li>
-                </ul>
-              </div>
-            </div>
+            {/* Long-Term Results */}
+            <FlipBox
+              icon="/images/customer-service.png"
+              iconBg="bg-teal-100"
+              title="Long-Term & Sustainable Results"
+              description="Unlike short-term marketing tactics, SEO delivers lasting benefits through continuous optimization, helping your business grow steadily over time."
+            />
           </div>
+        </div>
+      </section>
 
-          {/* CTA Section */}
-          <div className="text-center">
-            <h3 className="text-3xl font-bold text-[#1a1a1a] mb-6">
-              Ready to Start Your Project?
-            </h3>
-            <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-              Let's discuss your idea and see how our proven process can bring it to life.
+
+      {/* TECH STACK SECTION */}
+      <section className="w-full bg-white py-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-[#0F172A] mb-4">
+              SEO Technology Stack
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Cutting-edge tools and technologies we use to deliver exceptional SEO results
             </p>
-            <button className="flex items-center gap-2 bg-[#1a1a1a] hover:bg-[#333333] text-white font-semibold px-8 py-4 rounded-full transition-all mx-auto">
-              Get Started Today
-              <FiChevronRight size={20} />
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+            {[
+              { name: "Google Analytics", category: "Analytics", icon: "📊" },
+              { name: "SEMrush", category: "SEO Tools", icon: "🔍" },
+              { name: "Ahrefs", category: "Backlink Analysis", icon: "🔗" },
+              { name: "Screaming Frog", category: "Crawling", icon: "🐸" },
+              { name: "Google Search Console", category: "Webmaster", icon: "🎯" },
+              { name: "Moz Pro", category: "SEO Suite", icon: "⚡" },
+              { name: "Schema.org", category: "Structured Data", icon: "🏗️" },
+              { name: "PageSpeed Insights", category: "Performance", icon: "🚀" },
+              { name: "GTmetrix", category: "Performance", icon: "⚡" },
+              { name: "Yoast SEO", category: "WordPress", icon: "📝" },
+              { name: "Google Tag Manager", category: "Tracking", icon: "🏷️" },
+              { name: "Hotjar", category: "User Behavior", icon: "🔥" }
+            ].map((tech, index) => (
+              <div key={index} className="text-center group">
+                <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-blue-50 to-indigo-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <span className="text-3xl">{tech.icon}</span>
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-1">{tech.name}</h3>
+                <p className="text-sm text-gray-500">{tech.category}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CLIENT LOGOS SECTION */}
+      <section className="w-full bg-gray-50 py-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-[#0F172A] mb-4">
+              Trusted by Leading Clients
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              We've helped businesses across various industries achieve their SEO goals
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3  items-center">
+            {[
+              { name: "Site Invention", logo: "/images/logo.jpeg" },
+              { name: "TRIVEXON", logo: "/clients/trivexon.png" },
+              { name: "SKILLNOXERA", logo: "/clients/skillnoxera.png" },
+
+            ].map((client, index) => (
+              <div key={index} className="flex items-center justify-center">
+                <div className="w-52 h-40 bg-white rounded-lg shadow-sm flex items-center justify-center hover:shadow-md transition-shadow duration-300 border border-gray-100 mx-auto">
+                  <img
+                    src={client.logo}
+                    alt={client.name}
+                    className="max-w-full max-h-full object-contain"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.nextElementSibling.style.display = 'flex';
+                    }}
+                  />
+                  <div className="hidden items-center justify-center w-full h-full">
+                    <div className="text-center">
+                      <div className="text-2xl mb-1">🏢</div>
+                      <div className="text-xs font-medium text-gray-600">{client.name}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action Section */}
+      <section className="w-full bg-white py-20 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <div className="relative z-10">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] mb-4">
+              Ready to Grow Your Business with
+              <br /> Result-Driven SEO Services?
+            </h2>
+            <p className="text-gray-600 mb-8">
+              Increase rankings, traffic, and conversions with proven SEO strategies.
+            </p>
+            <button className="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg">
+              Get Free SEO Consultation
             </button>
           </div>
+
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div
+              className="w-full h-full bg-no-repeat bg-center opacity-10"
+              style={{
+                backgroundImage: "url('/images/dot-grid.png')",
+                backgroundSize: "50px 50px",
+              }}
+            ></div>
+          </div>
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <Testimonials />
+    </>
+  );
+}
 
-      {/* CTA Section */}
-      <section className="py-20 px-6 bg-[#1a1a1a]">
-        <div className="max-w-[1300px] mx-auto text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">
-            Let's Build Something Amazing Together
-          </h2>
-          <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-            Our proven process will guide your project from concept to success.
-          </p>
-          <button className="bg-yellow-400 hover:bg-yellow-500 text-[#1a1a1a] font-semibold px-10 py-4 rounded-full transition-all text-lg">
-            Start Your Project
-          </button>
+/* Flip Box Component */
+function FlipBox({ icon, iconBg, title, description }) {
+  return (
+    <div className="group relative  h-65 perspective-1000">
+      <div className="relative w-full h-full transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-y-180">
+        {/* Front Side */}
+        <div className="absolute w-full h-full backface-hidden bg-white rounded-xl shadow-lg p-8">
+          <div className="text-center h-full flex flex-col justify-center">
+            <div className={`w-20 h-20 mx-auto mb-6 ${iconBg} rounded-full flex items-center justify-center`}>
+              <img src={icon} alt={title} className="w-12 h-12" />
+            </div>
+            <h3 className="text-xl font-bold text-gray-800 mb-4">{title}</h3>
+            <p className="text-gray-600 leading-relaxed text-sm">
+              {description.substring(0, 100)}...
+            </p>
+
+          </div>
         </div>
-      </section>
 
-      <Footer />
+        {/* Back Side */}
+        <div className="absolute w-full h-full backface-hidden rotate-y-180 bg-blue-500 rounded-xl shadow-lg p-8">
+          <div className="text-center h-full flex flex-col justify-center">
+            <h3 className="text-xl font-bold text-white mb-6">{title}</h3>
+            <p className="text-white leading-relaxed">
+              {description}
+            </p>
+
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
 
+/* Step Card */
+function Step({ step, title, logo, color, className = "" }) {
+  return (
+    <div className={`flex flex-col items-center text-center w-44 ${className}`}>
+      <span className="text-sm font-semibold text-blue-600 mb-3">
+        {step}
+      </span>
+
+      <div
+        className={`w-20 h-25 flex items-center justify-center rounded-xl shadow-md ${color}`}
+      >
+        <img
+          src={logo}
+          alt={title}
+          className="w-10 h-10 object-contain"
+        />
+      </div>
+
+      <p className="mt-4 text-sm font-medium text-gray-700 leading-snug">
+        {title}
+      </p>
+    </div>
+  );
+}
+
+function WebDesignProcess() {
+  return (
+    <section className="w-full bg-white relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 text-center relative">
+
+        {/* Heading */}
+        <h2 className="text-4xl font-semibold text-[#243B6B] mb-24">
+          Our SEO Process at
+          <span className="font-bold"> Site Invention</span>
+        </h2>
+
+        {/* Arc Line */}
+        <div className="absolute left-1/2 top-[220px] -translate-x-1/2 w-[85%] h-[200px] border-t border-dashed border-gray-800 rounded-t-full" />
+
+        {/* Steps */}
+        <div className="relative flex justify-between items-start">
+
+          {/* STEP 1 */}
+          <Step
+            step="STEP 1"
+            title="SEO Audit & Competitor Analysis"
+            logo="/images/ser1.png"
+            color="bg-orange-50 text-orange-500"
+            className="mt-40"
+          />
+
+          {/* STEP 2 */}
+          <Step
+            step="STEP 2"
+            title="Keyword Research & SEO Strategy"
+            logo="/images/ser2.png"
+            color="bg-blue-50 text-blue-500"
+            className="mt-10"
+          />
+
+          {/* STEP 3 */}
+          <Step
+            step="STEP 3"
+            title="On-Page & Technical SEO Optimization"
+            logo="/images/ser3.png"
+            color="bg-green-50 text-green-500"
+            className="-mt-10"
+          />
+
+          {/* STEP 4 */}
+          <Step
+            step="STEP 4"
+            title="Content Optimization & Link Building"
+            logo="/images/ser4.png"
+            color="bg-sky-50 text-sky-500"
+            className="mt-10"
+          />
+
+          {/* STEP 5 */}
+          <Step
+            step="STEP 5"
+            title="Monitoring, Reporting & Continuous Improvement"
+            logo="/images/ser5.png"
+            color="bg-pink-50 text-pink-500"
+            className="mt-40"
+          />
+
+        </div>
+      </div>
+    </section>
+  );
+}

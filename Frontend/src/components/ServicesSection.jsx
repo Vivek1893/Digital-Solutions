@@ -5,47 +5,56 @@ const ServicesSection = () => {
     {
       image: "/images/ser1.png",
       title: "Web Designing",
-      description: "Site Invention love designing websites with touch of creativity. We understand your needs and deliver solutions..."
+      description: "Site Invention love designing websites with touch of creativity. We understand your needs and deliver solutions...",
+      link: "/services/web-design"
     },
     {
       image: "/images/ser2.png",
-      title: "Web Development",
-      description: "Custom web development solutions built with modern technologies. We create fast, secure, and scalable websites."
+      title: "Ai Automation",
+      description: "Custom web development solutions built with modern technologies. We create fast, secure, and scalable websites.",
+      link: "/services/ai-automation"
     },
     {
       image: "/images/ser3.png",
-      title: "Marketing Strategy",
-      description: "Data-driven marketing strategies that deliver results. We help you reach your target audience effectively."
+      title: "ERP/CRM Development",
+      description: "Data-driven marketing strategies that deliver results. We help you reach your target audience effectively.",
+      link: "/services/erp-crm"
     },
     {
       image: "/images/ser4.png",
       title: "SEO Optimization",
-      description: "Improve your search engine rankings and drive organic traffic. Our SEO strategies deliver measurable results."
+      description: "Improve your search engine rankings and drive organic traffic. Our SEO strategies deliver measurable results.",
+      link: "/services/seoservices"
     },
     {
       image: "/images/ser5.png",
       title: "UI/UX Design",
-      description: "User-centered design that creates delightful experiences. We craft interfaces that users love."
+      description: "User-centered design that creates delightful experiences. We craft interfaces that users love.",
+      link: "/services/ui-ux"
     },
     {
       image: "/images/ser6.png",
-      title: "App Development",
-      description: "Native and cross-platform mobile applications. We build apps that engage users and drive business growth."
+      title: "AI Agent",
+      description: "Native and cross-platform mobile applications. We build apps that engage users and drive business growth.",
+      link: "/services/ai-agent"
     },
     {
       image: "/images/ser7.png",
-      title: "SEO Optimization",
-      description: "Improve your search engine rankings and drive organic traffic. Our SEO strategies deliver measurable results."
+      title: "N8N Workflow",
+      description: "Improve your search engine rankings and drive organic traffic. Our SEO strategies deliver measurable results.",
+      link: "/services/nn-workflow"
     },
     {
       image: "/images/ser1.png",
-      title: "UI/UX Design",
-      description: "User-centered design that creates delightful experiences. We craft interfaces that users love."
+      title: "E-Commerce Website",
+      description: "User-centered design that creates delightful experiences. We craft interfaces that users love.",
+      link: "/services/e-commerce"
     },
     {
       image: "/images/ser2.png",
-      title: "App Development",
-      description: "Native and cross-platform mobile applications. We build apps that engage users and drive business growth."
+      title: "Wordpress Website",
+      description: "Native and cross-platform mobile applications. We build apps that engage users and drive business growth.",
+      link: "/services/wordpress"
     }
 
   ];
@@ -91,7 +100,7 @@ const ServicesSection = () => {
               {/* Read More Link */}
               <div className="text-center">
                 <a
-                  href="#"
+                  href={service.link}
                   className="inline-flex items-center text-[#2563EB] hover:text-[#1d4ed8] font-semibold transition-colors duration-200"
                 >
                   Read More

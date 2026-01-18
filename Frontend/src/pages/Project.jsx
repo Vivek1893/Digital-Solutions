@@ -1,228 +1,295 @@
-import React, { useState } from "react";
-import { FiChevronRight, FiExternalLink } from "react-icons/fi";
-import { MdFilterList } from "react-icons/md";
-import Footer from "../components/Footer";
-import Testimonials from "../components/Testimonials";
+import React from "react";
 
-export default function Portfolio() {
-  const [filter, setFilter] = useState("all");
-
-  const projects = [
-    {
-      id: 1,
-      title: "E-Commerce Platform",
-      category: "web",
-      description: "Modern e-commerce solution with payment integration and inventory management",
-      image: "/images/img-1.png",
-      tags: ["React", "Node.js", "MongoDB"]
-    },
-    {
-      id: 2,
-      title: "Mobile Banking App",
-      category: "app",
-      description: "Secure banking application with biometric authentication and real-time transactions",
-      image: "/images/img6.png",
-      tags: ["React Native", "iOS", "Android"]
-    },
-    {
-      id: 3,
-      title: "Corporate Website",
-      category: "web",
-      description: "Professional corporate website with CMS integration and responsive design",
-      image: "/images/banner-image-8.png",
-      tags: ["Next.js", "WordPress", "Tailwind"]
-    },
-    {
-      id: 4,
-      title: "Fitness Tracking App",
-      category: "app",
-      description: "Health and fitness app with activity tracking and social features",
-      image: "/images/img-1.png",
-      tags: ["Flutter", "Firebase", "iOS"]
-    },
-    {
-      id: 5,
-      title: "Restaurant Dashboard",
-      category: "design",
-      description: "UI/UX design for restaurant management system with analytics dashboard",
-      image: "/images/img6.png",
-      tags: ["Figma", "UI/UX", "Design System"]
-    },
-    {
-      id: 6,
-      title: "SaaS Platform",
-      category: "web",
-      description: "Cloud-based SaaS platform with subscription management and analytics",
-      image: "/images/banner-image-8.png",
-      tags: ["Vue.js", "Python", "AWS"]
-    }
-  ];
-
-  const filteredProjects = filter === "all" 
-    ? projects 
-    : projects.filter(project => project.category === filter);
-
-  const categories = [
-    { id: "all", name: "All Projects" },
-    { id: "web", name: "Web Development" },
-    { id: "app", name: "App Development" },
-    { id: "design", name: "UI/UX Design" }
-  ];
-
+export default function OurWorks() {
   return (
-    <div className="bg-white">
-      {/* Header Section */}
+    <section className="w-full bg-white">
+
+      {/* HERO SECTION */}
+
+
       <section
         className="w-full h-[400px] bg-cover bg-center relative"
-        style={{ backgroundImage: `url('/images/banner-image-8.png')` }}
+        style={{ backgroundImage: `url('/images/project.jpg')` }}
       >
         <div className="absolute inset-0 bg-black/50"></div>
-        <div className="absolute inset-0 flex flex-col items-center justify-center">
-          <h1 className="text-5xl font-bold text-white mb-6">Portfolio</h1>
-          <div className="flex items-center gap-3 text-white text-lg">
-            <a href="/" className="hover:text-yellow-400">
-              Home
-            </a>
-            <span>/</span>
-            <span className="text-yellow-400">Portfolio</span>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 h-full flex flex-col items-center justify-center">
+          <h1 className="text-5xl font-bold text-white mb-6 text-center">Our Projects</h1>
+          <p className="text-white text-lg text-center max-w-3xl">
+            We have worked with companies across multiple industries and
+            delivered impactful digital solutions that drive real results.
+          </p>
+        </div>
+      </section>
+
+
+
+      {/* PROJECT 1 */}
+      <section className="bg-[#B88954] py-20">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+          <img
+            src="/images/project.jpeg"
+            alt="Prestige Jasdan Classic"
+            className="rounded-xl shadow-2xl"
+          />
+
+          <div>
+            <h3 className="text-2xl font-semibold text-black mb-4">
+              Prestige Jasdan Classic
+            </h3>
+            <p className="text-black/80 mb-6 leading-relaxed">
+              A premium real estate project offering a luxury digital experience
+              with strong focus on SEO, performance, and lead generation.
+            </p>
+
+            <div className="flex items-center gap-4 mb-8">
+              <Tool label="WordPress" />
+              <Tool label="Responsive" />
+              <Tool label="SEO" />
+            </div>
+
+            <div className="flex flex-wrap gap-4">
+              <OutlineBtn>See Details</OutlineBtn>
+              <OutlineBtn>View Website</OutlineBtn>
+              <PrimaryBtn>Request a Free Quote</PrimaryBtn>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Main Content Section */}
-      <section className="py-20 px-6">
-        <div className="max-w-[1300px] mx-auto">
-          {/* Title Section */}
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-[#1a1a1a] mb-4">
-              See Our{" "}
-              <span className="bg-[#2a2a2a] text-white px-4 py-2 rounded-lg inline-block">
-                Recent Projects
-              </span>
-            </h2>
-            <p className="text-gray-600 text-lg mt-6 max-w-2xl mx-auto">
-              Explore our portfolio of successful projects across web development,
-              mobile apps, and UI/UX design.
+      {/* PROJECT 2 */}
+      <section className="bg-white py-20">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h3 className="text-2xl font-semibold text-black mb-4">
+              Evergreen Power
+            </h3>
+            <p className="text-gray-600 mb-6 leading-relaxed">
+              A renewable energy brand delivering high-impact digital presence
+              through modern design, performance optimization, and SEO
+              strategies.
             </p>
-          </div>
 
-          {/* Filter Section */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            {categories.map((cat) => (
-              <button
-                key={cat.id}
-                onClick={() => setFilter(cat.id)}
-                className={`px-6 py-3 rounded-full font-semibold transition-all ${
-                  filter === cat.id
-                    ? "bg-[#1a1a1a] text-white"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                }`}
-              >
-                {cat.name}
-              </button>
-            ))}
-          </div>
+            <div className="flex items-center gap-4 mb-8">
+              <Tool label="WordPress" />
+              <Tool label="Responsive" />
+              <Tool label="SEO" />
+            </div>
 
-          {/* Projects Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-            {filteredProjects.map((project) => (
-              <div
-                key={project.id}
-                className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow overflow-hidden group"
-              >
-                <div className="relative overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <button className="bg-white text-[#1a1a1a] px-6 py-3 rounded-full font-semibold flex items-center gap-2 hover:bg-yellow-400 transition-all">
-                      View Project
-                      <FiExternalLink size={20} />
-                    </button>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold text-[#1a1a1a] mb-3">
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-600 mb-4 leading-relaxed">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag, idx) => (
-                      <span
-                        key={idx}
-                        className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Stats Section */}
-          <div className="bg-gray-50 rounded-2xl p-12 mb-20">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
-              <div>
-                <h3 className="text-5xl font-bold text-[#1a1a1a] mb-2">200+</h3>
-                <p className="text-gray-600 text-lg">Projects Completed</p>
-              </div>
-              <div>
-                <h3 className="text-5xl font-bold text-[#1a1a1a] mb-2">150+</h3>
-                <p className="text-gray-600 text-lg">Happy Clients</p>
-              </div>
-              <div>
-                <h3 className="text-5xl font-bold text-[#1a1a1a] mb-2">50+</h3>
-                <p className="text-gray-600 text-lg">Team Members</p>
-              </div>
-              <div>
-                <h3 className="text-5xl font-bold text-[#1a1a1a] mb-2">10+</h3>
-                <p className="text-gray-600 text-lg">Years Experience</p>
-              </div>
+            <div className="flex flex-wrap gap-4">
+              <OutlineBtn>View Website</OutlineBtn>
+              <OutlineBtn>See Details</OutlineBtn>
+              <PrimaryBtn>Request a Free Quote</PrimaryBtn>
             </div>
           </div>
 
-          {/* CTA Section */}
-          <div className="text-center">
-            <h3 className="text-3xl font-bold text-[#1a1a1a] mb-6">
-              Ready to Start Your Project?
+          <img
+            src="/images/hero.png"
+            alt="Evergreen Power"
+            className="rounded-xl shadow-2xl"
+          />
+        </div>
+      </section>
+
+      {/* PROJECT 3 */}
+      <section className="bg-[#B88954] py-20">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+          <img
+            src="/images/hero1.png"
+            alt="TechStart Solutions"
+            className="rounded-xl shadow-2xl"
+          />
+
+          <div>
+            <h3 className="text-2xl font-semibold text-black mb-4">
+              TechStart Solutions
             </h3>
-            <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-              Let's discuss your idea and create something amazing together.
+            <p className="text-black/80 mb-6 leading-relaxed">
+              A cutting-edge SaaS platform with advanced functionality,
+              seamless user experience, and scalable architecture built
+              for enterprise clients.
             </p>
-            <button className="flex items-center gap-2 bg-[#1a1a1a] hover:bg-[#333333] text-white font-semibold px-8 py-4 rounded-full transition-all mx-auto">
-              Get Started Today
-              <FiChevronRight size={20} />
-            </button>
+
+            <div className="flex items-center gap-4 mb-8">
+              <Tool label="React" />
+              <Tool label="Node.js" />
+              <Tool label="Cloud" />
+            </div>
+
+            <div className="flex flex-wrap gap-4">
+              <OutlineBtn>See Details</OutlineBtn>
+              <OutlineBtn>View Website</OutlineBtn>
+              <PrimaryBtn>Request a Free Quote</PrimaryBtn>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <Testimonials />
+      {/* PROJECT 4 */}
+      <section className="bg-white py-20">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h3 className="text-2xl font-semibold text-black mb-4">
+              Luxury Homes Realty
+            </h3>
+            <p className="text-gray-600 mb-6 leading-relaxed">
+              Premium real estate portal featuring immersive property tours,
+              advanced search functionality, and integrated CRM for
+              high-end property transactions.
+            </p>
 
-      {/* CTA Section */}
-      <section className="py-20 px-6 bg-[#1a1a1a]">
-        <div className="max-w-[1300px] mx-auto text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">
-            Let's Create Something Amazing Together
-          </h2>
-          <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-            Ready to add your project to our portfolio? Let's discuss your ideas.
-          </p>
-          <button className="bg-yellow-400 hover:bg-yellow-500 text-[#1a1a1a] font-semibold px-10 py-4 rounded-full transition-all text-lg">
-            Start Your Project
-          </button>
+            <div className="flex items-center gap-4 mb-8">
+              <Tool label="Vue.js" />
+              <Tool label="MySQL" />
+              <Tool label="API" />
+            </div>
+
+            <div className="flex flex-wrap gap-4">
+              <OutlineBtn>View Website</OutlineBtn>
+              <OutlineBtn>See Details</OutlineBtn>
+              <PrimaryBtn>Request a Free Quote</PrimaryBtn>
+            </div>
+          </div>
+
+          <img
+            src="/images/aboutus.png"
+            alt="Luxury Homes Realty"
+            className="rounded-xl shadow-2xl"
+          />
         </div>
       </section>
 
-  
+      {/* PROJECT 5 */}
+      <section className="bg-[#B88954] py-20">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+          <img
+            src="/images/our-values-1.png"
+            alt="FoodieExpress"
+            className="rounded-xl shadow-2xl"
+          />
+
+          <div>
+            <h3 className="text-2xl font-semibold text-black mb-4">
+              FoodieExpress
+            </h3>
+            <p className="text-black/80 mb-6 leading-relaxed">
+              Complete food delivery platform with real-time tracking,
+              payment integration, and restaurant management system
+              serving thousands of daily orders.
+            </p>
+
+            <div className="flex items-center gap-4 mb-8">
+              <Tool label="Mobile" />
+              <Tool label="Payment" />
+              <Tool label="GPS" />
+            </div>
+
+            <div className="flex flex-wrap gap-4">
+              <OutlineBtn>See Details</OutlineBtn>
+              <OutlineBtn>View Website</OutlineBtn>
+              <PrimaryBtn>Request a Free Quote</PrimaryBtn>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PROJECT 6 */}
+      <section className="bg-white py-20">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h3 className="text-2xl font-semibold text-black mb-4">
+              HealthPlus Medical
+            </h3>
+            <p className="text-gray-600 mb-6 leading-relaxed">
+              Comprehensive healthcare management system with patient portals,
+              appointment scheduling, and telemedicine capabilities for
+              modern medical practices.
+            </p>
+
+            <div className="flex items-center gap-4 mb-8">
+              <Tool label="HIPAA" />
+              <Tool label="Secure" />
+              <Tool label="Cloud" />
+            </div>
+
+            <div className="flex flex-wrap gap-4">
+              <OutlineBtn>View Website</OutlineBtn>
+              <OutlineBtn>See Details</OutlineBtn>
+              <PrimaryBtn>Request a Free Quote</PrimaryBtn>
+            </div>
+          </div>
+
+          <img
+            src="/images/about1-2.jpg"
+            alt="HealthPlus Medical"
+            className="rounded-xl shadow-2xl"
+          />
+        </div>
+      </section>
+
+      {/* CTA SECTION */}
+      <section className="bg-black py-20">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <h2 className="text-4xl font-bold text-white mb-6">
+            Ready to Start Your Project?
+          </h2>
+          <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
+            Join our 3500+ happy clients and let's create something amazing together.
+          </p>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <PrimaryBtn>Get Started Today</PrimaryBtn>
+            <OutlineBtn className="border-white text-white hover:bg-white hover:text-black">
+              View More Projects
+            </OutlineBtn>
+          </div>
+        </div>
+      </section>
+    </section>
+  );
+}
+
+/* UI COMPONENTS */
+
+function Tool({ label }) {
+  const getTechIcon = (tech) => {
+    const icons = {
+      "React": "⚛️",
+      "Node.js": "🟢",
+      "Cloud": "☁️",
+      "Vue.js": "💚",
+      "MySQL": "🐬",
+      "API": "🔌",
+      "Mobile": "📱",
+      "Payment": "💳",
+      "GPS": "📍",
+      "HIPAA": "🛡️",
+      "Secure": "🔒",
+      "WordPress": "📝",
+      "Responsive": "📱",
+      "SEO": "🔍"
+    };
+    return icons[tech] || "🔧";
+  };
+
+  return (
+    <div className="w-16 h-16 rounded-full border border-black/30 flex flex-col items-center justify-center text-xs font-medium text-black bg-white">
+      <span className="text-lg mb-1">{getTechIcon(label)}</span>
+      <span className="text-[10px] leading-tight">{label}</span>
     </div>
   );
 }
 
+function OutlineBtn({ children, className }) {
+  return (
+    <button className={`px-6 py-2 rounded-full border border-black text-black text-sm font-semibold hover:bg-black hover:text-white transition ${className || ''}`}>
+      {children}
+    </button>
+  );
+}
+
+function PrimaryBtn({ children }) {
+  return (
+    <button className="px-6 py-2 rounded-full bg-black text-white text-sm font-semibold hover:bg-gray-800 transition">
+      {children}
+    </button>
+  );
+}
