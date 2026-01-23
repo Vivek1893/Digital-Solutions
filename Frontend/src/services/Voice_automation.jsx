@@ -59,7 +59,7 @@ export default function HeroSection() {
             {/* RIGHT IMAGE */}
             <div className="overflow-hidden bg-transparent">
               <img
-                src="/servicesimg/web.png"
+                src="/servicesimg/automation hero.png"
                 alt="voice automation"
                 className="w-400 h-full object-cover"
               />
@@ -93,7 +93,7 @@ export default function HeroSection() {
             {/* LEFT IMAGE */}
             <div className="flex justify-center">
               <img
-                src="/servicesimg/web.png"
+                src="/servicesimg/automation.png"
                 alt="Voice Automation Illustration"
                 className="max-w-[480px] w-full"
               />

@@ -57,7 +57,7 @@ export default function HeroSection() {
             {/* RIGHT IMAGE */}
             <div className="overflow-hidden bg-transparent">
               <img
-                src="/servicesimg/web.png"
+                src="/servicesimg/uiux design.png"
                 alt="UI/UX Design"
                 className="w-400 h-full object-cover"
               />
@@ -91,7 +91,7 @@ export default function HeroSection() {
             {/* LEFT IMAGE */}
             <div className="flex justify-center">
               <img
-                src="/servicesimg/web.png"
+                src="/servicesimg/uidesgin.png"
                 alt="E-commerce Development Illustration"
                 className="max-w-[480px] w-full"
               />

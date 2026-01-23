@@ -34,7 +34,7 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-[#0F172A]/10"></div>
 
         {/* Content */}
-        <div className="relative max-w-9xl mx-auto px-6 py-10">
+        <div className="relative max-w-9xl mx-auto px-6 py-20">
           <div className="grid lg:grid-cols-2 gap-14 items-center">
 
             {/* LEFT CONTENT */}
@@ -56,11 +56,11 @@ export default function HeroSection() {
             </div>
 
             {/* RIGHT IMAGE */}
-            <div className="overflow-hidden bg-transparent">
+            <div className="overflow-hidden bg-transparent ">
               <img
-                src="/servicesimg/web.png"
+                src="/servicesimg/ecommercehero.png"
                 alt="e-commerce development"
-                className="w-400 h-full object-cover"
+                className="w-400 h-full  object-cover"
               />
             </div>
           </div>
@@ -92,7 +92,7 @@ export default function HeroSection() {
             {/* LEFT IMAGE */}
             <div className="flex justify-center">
               <img
-                src="/servicesimg/web.png"
+                src="/servicesimg/ecommerce.png"
                 alt="E-commerce Development Illustration"
                 className="max-w-[480px] w-full"
               />
