@@ -143,65 +143,183 @@ export default function HeroSection() {
       <WebDesignProcess />
       {/* =============================================================================================== */}
       {/* WEBSITE ADVANTAGES SECTION */}
-      <section className="w-full bg-gray-50 py-20 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6">
-          {/* Heading */}
-          <h2 className="text-4xl font-semibold text-center text-[#243B6B] mb-16">
-            Unlocking the advantages of owning your website
-          </h2>
+      <section className="w-full bg-white py-24 relative overflow-hidden">
+        {/* Subtle Background Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-gray-100 to-gray-200"></div>
+        </div>
 
-          {/* First Row - 3 Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-            {/* Global Presence */}
-            <FlipBox
-              icon="/images/global-network.png"
-              iconBg="bg-blue-100"
-              title="Global Presence"
-              description="A website grants your business a global footprint, enabling you to reach customers worldwide, 24/7. It transcends geographical barriers, making your products or services accessible to a vast audience."
-            />
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          {/* Elegant Section Header */}
+          <div className="text-center mb-24">
 
-            {/* Increased Credibility */}
-            <FlipBox
-              icon="/images/user-experience.png"
-              iconBg="bg-green-100"
-              title="Increased Credibility"
-              description="In today's digital era, businesses with a professional website are perceived as more credible and trustworthy. It serves as a digital proof of your business's legitimacy and commitment to quality."
-            />
-
-            {/* Cost-Effective Marketing */}
-            <FlipBox
-              icon="/images/marketing.png"
-              iconBg="bg-purple-100"
-              title="Cost-Effective Marketing"
-              description="Websites are powerful tools for marketing and advertising at a fraction of the cost of traditional methods. SEO and online ads can drive targeted traffic, maximizing return on investment."
-            />
+            <h2 className="text-5xl font-light text-gray-900 mb-6 leading-tight">
+              Why Your Business Needs
+              <span className="font-semibold text-gray-900"> Professional Web Design</span>
+            </h2>
+            <div className="w-24 h-0.5 bg-gray-300 mx-auto mb-8"></div>
+            <p className="text-lg text-gray-500 max-w-3xl mx-auto leading-relaxed">
+              In an increasingly digital world, your website serves as the foundation of your business success
+            </p>
           </div>
 
-          {/* Second Row - 3 Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
-            {/* Special Offers and Promotions */}
-            <FlipBox
-              icon="/images/affiliate-marketing.png"
-              iconBg="bg-orange-100"
-              title="Special Offers and Promotions"
-              description="Clients benefit from easy access to promotions, special offers, and loyalty programs available exclusively through the business's website, offering value and incentives for engagement."
-            />
+          {/* Timeline-Style Layout */}
+          <div className="relative">
+            {/* Vertical Line */}
+            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gray-200 transform -translate-x-1/2"></div>
 
-            {/* Competitive Advantage */}
-            <FlipBox
-              icon="/images/competitive-advantage.png"
-              iconBg="bg-red-100"
-              title="Competitive Advantage"
-              description="Having a well-designed website allows you to stand out in a crowded market. It offers an opportunity to showcase your unique selling points and outshine your competition."
-            />
+            {/* Advantage Items */}
+            <div className="space-y-16">
+              {/* Item 1 - Left */}
+              <div className="flex items-center gap-12">
+                <div className="flex-1 text-right pr-12">
+                  <div className="inline-flex items-center gap-3 mb-4">
+                    <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+                      <span className="text-white text-sm font-bold">1</span>
+                    </div>
+                    <h3 className="text-2xl font-semibold text-gray-900">Global Market Access</h3>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed max-w-md ml-auto">
+                    Expand your business beyond geographical boundaries. A professional website opens doors to international markets,
+                    allowing customers from around the world to discover and engage with your brand 24/7.
+                  </p>
+                </div>
+                <div className="relative">
+                  <div className="w-16 h-16 bg-white border-4 border-blue-500 rounded-full flex items-center justify-center shadow-lg">
+                    <svg className="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <div className="absolute inset-0 w-16 h-16 bg-blue-500/20 rounded-full animate-ping"></div>
+                </div>
+                <div className="flex-1 pl-12"></div>
+              </div>
 
-            {/* Improved Customer Service */}
-            <FlipBox
-              icon="/images/customer-service.png"
-              iconBg="bg-teal-100"
-              title="Improved Customer Service"
-              description="Websites can offer various customer service options, such as FAQs, chatbots, and contact forms, enhancing customer satisfaction by providing instant assistance and information."
-            />
+              {/* Item 2 - Right */}
+              <div className="flex items-center gap-12">
+                <div className="flex-1 pr-12"></div>
+                <div className="relative">
+                  <div className="w-16 h-16 bg-white border-4 border-green-500 rounded-full flex items-center justify-center shadow-lg">
+                    <svg className="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <div className="absolute inset-0 w-16 h-16 bg-green-500/20 rounded-full animate-ping"></div>
+                </div>
+                <div className="flex-1 text-left pl-12">
+                  <div class="inline-flex items-center gap-3 mb-4">
+                    <h3 className="text-2xl font-semibold text-gray-900">Enhanced Brand Credibility</h3>
+                    <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                      <span className="text-white text-sm font-bold">2</span>
+                    </div>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed max-w-md">
+                    Establish trust and authority in your industry. A well-designed website serves as digital proof of your
+                    professionalism, helping potential customers feel confident in choosing your business over competitors.
+                  </p>
+                </div>
+              </div>
+
+              {/* Item 3 - Left */}
+              <div className="flex items-center gap-12">
+                <div className="flex-1 text-right pr-12">
+                  <div className="inline-flex items-center gap-3 mb-4">
+                    <div className="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center">
+                      <span className="text-white text-sm font-bold">3</span>
+                    </div>
+                    <h3 className="text-2xl font-semibold text-gray-900">Intelligent Marketing Platform</h3>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed max-w-md ml-auto">
+                    Transform your marketing efforts with data-driven strategies. Your website becomes a powerful tool for
+                    targeted campaigns, lead generation, and measuring marketing effectiveness with precision.
+                  </p>
+                </div>
+                <div className="relative">
+                  <div className="w-16 h-16 bg-white border-4 border-purple-500 rounded-full flex items-center justify-center shadow-lg">
+                    <svg className="w-8 h-8 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <div className="absolute inset-0 w-16 h-16 bg-purple-500/20 rounded-full animate-ping"></div>
+                </div>
+                <div className="flex-1 pl-12"></div>
+              </div>
+
+              {/* Item 4 - Right */}
+              <div className="flex items-center gap-12">
+                <div className="flex-1 pr-12"></div>
+                <div className="relative">
+                  <div className="w-16 h-16 bg-white border-4 border-orange-500 rounded-full flex items-center justify-center shadow-lg">
+                    <svg className="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  </div>
+                  <div className="absolute inset-0 w-16 h-16 bg-orange-500/20 rounded-full animate-ping"></div>
+                </div>
+                <div className="flex-1 text-left pl-12">
+                  <div className="inline-flex items-center gap-3 mb-4">
+                    <h3 className="text-2xl font-semibold text-gray-900">Competitive Differentiation</h3>
+                    <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
+                      <span className="text-white text-sm font-bold">4</span>
+                    </div>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed max-w-md">
+                    Stand out in crowded marketplaces with unique digital experiences. Your website becomes a powerful
+                    platform to showcase what makes your business special and why customers should choose you.
+                  </p>
+                </div>
+              </div>
+
+              {/* Item 5 - Left */}
+              <div className="flex items-center gap-12">
+                <div className="flex-1 text-right pr-12">
+                  <div className="inline-flex items-center gap-3 mb-4">
+                    <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center">
+                      <span className="text-white text-sm font-bold">5</span>
+                    </div>
+                    <h3 className="text-2xl font-semibold text-gray-900">Customer Behavior Analytics</h3>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed max-w-md ml-auto">
+                    Gain deep insights into customer preferences and behavior patterns. Use valuable data to make
+                    informed decisions that continuously improve your products, services, and customer experience.
+                  </p>
+                </div>
+                <div className="relative">
+                  <div className="w-16 h-16 bg-white border-4 border-red-500 rounded-full flex items-center justify-center shadow-lg">
+                    <svg className="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                  </div>
+                  <div className="absolute inset-0 w-16 h-16 bg-red-500/20 rounded-full animate-ping"></div>
+                </div>
+                <div className="flex-1 pl-12"></div>
+              </div>
+
+              {/* Item 6 - Right */}
+              <div className="flex items-center gap-12">
+                <div className="flex-1 pr-12"></div>
+                <div className="relative">
+                  <div className="w-16 h-16 bg-white border-4 border-teal-500 rounded-full flex items-center justify-center shadow-lg">
+                    <svg className="w-8 h-8 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" />
+                    </svg>
+                  </div>
+                  <div className="absolute inset-0 w-16 h-16 bg-teal-500/20 rounded-full animate-ping"></div>
+                </div>
+                <div className="flex-1 text-left pl-12">
+                  <div className="inline-flex items-center gap-3 mb-4">
+                    <h3 className="text-2xl font-semibold text-gray-900">Continuous Customer Support</h3>
+                    <div className="w-8 h-8 bg-teal-500 rounded-full flex items-center justify-center">
+                      <span className="text-white text-sm font-bold">6</span>
+                    </div>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed max-w-md">
+                    Provide round-the-clock assistance and information. Your website serves as an always-available
+                    resource for customers, offering support, answers, and guidance whenever they need it.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
 
 

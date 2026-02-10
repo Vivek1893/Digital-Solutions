@@ -5,6 +5,7 @@ import SimpleFooter from "./components/Footer";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import OurClient from "./pages/OurClient";
+import Clients from "./pages/Clients";
 import Project from "./pages/Project";
 import Contact from "./pages/Contact";
 // ============ Services ============
@@ -27,9 +28,10 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/our-client" element={<OurClient />} />
+          <Route path="/clients" element={<Clients />} />
           <Route path="/project" element={<Project />} />
           <Route path="/contact" element={<Contact />} />
-          
+
           {/* ===================== Services ===================== */}
           <Route path="/services/web-design" element={<WebDesign />} />
           <Route path="/services/seoservices" element={<SeoServices />} />
@@ -41,8 +43,8 @@ function App() {
           <Route path="/services/ai-automation" element={<Ai_automation />} />
           <Route path="/services/ai-agent" element={<Ai_agent />} />
           <Route path="/services/nn-workflow" element={<N8n />} />
-         
-          </Routes>
+
+        </Routes>
       </div>
       <SimpleFooter />
     </Router>

@@ -168,7 +168,8 @@ const Navbar = () => {
             </div>
 
             <Link
-              to="/our-client"
+              // to="/our-client"
+              to="/Clients"
               className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
               onClick={() => {
                 setServicesDropdown(false);

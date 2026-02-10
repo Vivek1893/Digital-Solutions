@@ -141,8 +141,7 @@ export default function HeroSection() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             {/* Increased Online Visibility */}
             <FlipBox
-              icon="/images/global-network.png"
-              iconBg="bg-blue-100"
+              icon="/images/ser1.png"
               title="Increased Online Visibility"
               description="SEO helps your business rank higher on search engines, increasing online visibility and ensuring your brand reaches the right audience actively searching for your products or services."
             />

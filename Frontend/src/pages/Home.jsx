@@ -28,7 +28,7 @@ export default function Home() {
       
       {/* <FAQSection/> */}
       <Testimonials/>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

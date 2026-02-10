@@ -48,9 +48,9 @@ const Contact = () => {
       </div>
 
       {/* Contact Section Below Mountain Wave */}
-      <section className="w-full bg-white py-20">
+      {/* <section className="w-full bg-white py-20">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-start">
-          {/* LEFT CONTENT */}
+        
           <div>
             <span className="text-blue-600 tracking-widest text-sm font-semibold">
               --- CONTACT US
@@ -59,7 +59,7 @@ const Contact = () => {
               Get In Touch
             </h2>
 
-            {/* ADDRESS */}
+         
             <div className="flex gap-5 mb-8">
               <div className="text-blue-500">
                 <MapPin size={28} />
@@ -74,7 +74,7 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* BRANCH */}
+           
             <div className="flex gap-5 mb-8">
               <div className="text-blue-500">
                 <MapPin size={28} />
@@ -89,7 +89,7 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* MAIL */}
+            
             <div className="flex gap-5 mb-8">
               <div className="text-blue-500">
                 <Mail size={26} />
@@ -102,7 +102,7 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* PHONE */}
+          
             <div className="flex gap-5">
               <div className="text-blue-500">
                 <Phone size={26} />
@@ -116,7 +116,7 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* RIGHT FORM */}
+         
           <div className="bg-white rounded-2xl shadow-xl p-10">
             <h3 className="text-2xl font-bold text-slate-800 mb-8">
               Drop us a line!
@@ -163,7 +163,31 @@ const Contact = () => {
             </form>
           </div>
         </div>
-      </section>
+      </section> */}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     </section>
   );

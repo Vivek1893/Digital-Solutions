@@ -6,20 +6,64 @@ export default function OurWorks() {
 
       {/* HERO SECTION */}
 
-
       <section
-        className="w-full h-[400px] bg-cover bg-center relative"
-        style={{ backgroundImage: `url('/images/project.jpg')` }}
+        className="relative w-full bg-cover bg-center overflow-hidden"
       >
-        <div className="absolute inset-0 bg-black/50"></div>
-        <div className="relative z-10 max-w-7xl mx-auto px-6 h-full flex flex-col items-center justify-center">
-          <h1 className="text-5xl font-bold text-white mb-6 text-center">Our Projects</h1>
-          <p className="text-white text-lg text-center max-w-3xl">
-            We have worked with companies across multiple industries and
-            delivered impactful digital solutions that drive real results.
-          </p>
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-[#0F172A]/10"></div>
+
+        {/* Content */}
+        <div className="relative max-w-9xl mx-auto px-6 py-10">
+          <div className="grid lg:grid-cols-2 gap-14 items-center">
+
+            {/* LEFT CONTENT */}
+            <div className="text-white animate-fadeInUp ml-30">
+              <h1 className="text-[42px] lg:text-[52px] -mt-35 font-bold text-black leading-tight">
+                Our Featured <br />
+                Projects
+              </h1>
+
+              <div className="w-16 h-[3px] bg-blue-500 my-6"></div>
+
+              <p className="text-lg text-blue-900 max-w-xl">
+                Explore our portfolio of innovative digital solutions that showcase
+                our expertise in web development, design, and technology.
+              </p>
+
+              <div className="mt-8 border-l-4 border-blue-500 pl-6 italic text-blue-900">
+                Every project tells a story of innovation and excellence.
+              </div>
+            </div>
+
+            {/* RIGHT IMAGE */}
+            <div className="overflow-hidden bg-transparent">
+              <img
+                src="/servicesimg/web.png"
+                alt="our clients"
+                className="w-400 h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* BOTTOM WAVE */}
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+          <svg
+            viewBox="0 0 1000 100"
+            preserveAspectRatio="none"
+            className="w-full h-[80px] rotate-180"
+          >
+            <path
+              d="M421.9,6.5c22.6-2.5,51.5,0.4,75.5,5.3c23.6,4.9,70.9,23.5,100.5,35.7
+              c75.8,32.2,133.7,44.5,192.6,49.7
+              c23.6,2.1,48.7,3.5,103.4-2.5
+              c54.7-6,106.2-25.6,106.2-25.6V0H0v207.3z"
+              fill="#ffffff"
+            />
+          </svg>
         </div>
       </section>
+
 
 
 
@@ -48,9 +92,7 @@ export default function OurWorks() {
             </div>
 
             <div className="flex flex-wrap gap-4">
-              <OutlineBtn>See Details</OutlineBtn>
               <OutlineBtn>View Website</OutlineBtn>
-              <PrimaryBtn>Request a Free Quote</PrimaryBtn>
             </div>
           </div>
         </div>
@@ -116,9 +158,7 @@ export default function OurWorks() {
             </div>
 
             <div className="flex flex-wrap gap-4">
-              <OutlineBtn>See Details</OutlineBtn>
               <OutlineBtn>View Website</OutlineBtn>
-              <PrimaryBtn>Request a Free Quote</PrimaryBtn>
             </div>
           </div>
         </div>
@@ -184,9 +224,7 @@ export default function OurWorks() {
             </div>
 
             <div className="flex flex-wrap gap-4">
-              <OutlineBtn>See Details</OutlineBtn>
               <OutlineBtn>View Website</OutlineBtn>
-              <PrimaryBtn>Request a Free Quote</PrimaryBtn>
             </div>
           </div>
         </div>
