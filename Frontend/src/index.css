@@ -359,7 +359,7 @@ h1, h2, h3, h4, h5, h6 {
   animation: fadeInUp 0.6s ease forwards;
 }
 
-/* ---- HERO SPECIFIC ---- */
+/* Hero grid Specific */
 .hero-grid {
   background-image: 
     linear-gradient(rgba(124, 58, 237, 0.05) 1px, transparent 1px),
@@ -372,4 +372,13 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid transparent;
   background: linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
               var(--grad-primary) border-box;
+}
+
+/* ---- IMAGE HOVER SCROLL ---- */
+.image-scroll-hover {
+  transition: transform 6s ease-in-out;
+}
+
+.group:hover .image-scroll-hover {
+  transform: translateY(calc(-100% + 14rem));
 }

@@ -72,22 +72,20 @@ export default function Testimonials() {
             <button
               onClick={handlePrev}
               disabled={currentIndex === 0}
-              className={`w-11 h-11 rounded-xl border flex items-center justify-center transition-all duration-200 ${
-                currentIndex === 0
+              className={`w-11 h-11 rounded-xl border flex items-center justify-center transition-all duration-200 ${currentIndex === 0
                   ? 'border-[rgba(255,255,255,0.06)] text-slate-600 cursor-not-allowed'
                   : 'border-[rgba(124,58,237,0.3)] text-violet-400 hover:bg-[rgba(124,58,237,0.1)] hover:border-violet-500'
-              }`}
+                }`}
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button
               onClick={handleNext}
               disabled={currentIndex >= maxIndex}
-              className={`w-11 h-11 rounded-xl border flex items-center justify-center transition-all duration-200 ${
-                currentIndex >= maxIndex
+              className={`w-11 h-11 rounded-xl border flex items-center justify-center transition-all duration-200 ${currentIndex >= maxIndex
                   ? 'border-[rgba(255,255,255,0.06)] text-slate-600 cursor-not-allowed'
                   : 'border-[rgba(124,58,237,0.3)] text-violet-400 hover:bg-[rgba(124,58,237,0.1)] hover:border-violet-500'
-              }`}
+                }`}
             >
               <ChevronRight className="w-5 h-5" />
             </button>
@@ -148,11 +146,10 @@ export default function Testimonials() {
             <button
               key={i}
               onClick={() => setCurrentIndex(i)}
-              className={`transition-all duration-300 rounded-full ${
-                currentIndex === i
+              className={`transition-all duration-300 rounded-full ${currentIndex === i
                   ? 'w-8 h-2 bg-gradient-to-r from-violet-500 to-cyan-500'
                   : 'w-2 h-2 bg-[rgba(255,255,255,0.15)] hover:bg-[rgba(255,255,255,0.3)]'
-              }`}
+                }`}
             />
           ))}
         </div>

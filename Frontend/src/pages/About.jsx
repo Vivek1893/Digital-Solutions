@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import { CheckCircle, ArrowRight, Users, Code2, Globe, Lightbulb, Trophy, Heart } from "lucide-react";
 
 const stats = [
-  { value: "200+", label: "Projects Delivered", icon: "🚀" },
-  { value: "50+", label: "Happy Clients", icon: "🤝" },
-  { value: "5+", label: "Years Experience", icon: "⏱️" },
-  { value: "15+", label: "Team Experts", icon: "👥" },
+  { value: "10+", label: "Projects Delivered", icon: "🚀" },
+  { value: "5+", label: "Happy Clients", icon: "🤝" },
+  { value: "1+", label: "Years Experience", icon: "⏱️" },
+  { value: "5+", label: "Team Experts", icon: "👥" },
 ];
 
 const values = [
@@ -45,10 +45,9 @@ const perks = [
 ];
 
 const team = [
-  { name: "Vivek Maurya", role: "Founder & CEO", avatar: "VM", color: "#7C3AED" },
-  { name: "Rahul Singh", role: "Lead Developer", avatar: "RS", color: "#06B6D4" },
-  { name: "Pooja Sharma", role: "UI/UX Designer", avatar: "PS", color: "#F472B6" },
-  { name: "Amit Patel", role: "AI Engineer", avatar: "AP", color: "#FBBF24" },
+  { name: "Pravin Maurya", role: "AI & ML Engineer", image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop", color: "#7C3AED" },
+  { name: "Nehal", role: "Data Analyst & AI Automation ", image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop", color: "#06B6D4" },
+  { name: "Vivek Maurya", role: "UI/UX Designer & Fullstack Developer", image: "images/vivek.jpeg", color: "#F472B6" },
 ];
 
 export default function AboutHero() {
@@ -140,15 +139,13 @@ export default function AboutHero() {
               <p className="text-slate-400 leading-relaxed mb-5 font-[Inter]">
                 Trivexon is a web & software development agency based in Mumbai, Maharashtra. We specialize in delivering premium digital solutions ranging from high-converting websites and e-commerce platforms to AI automation systems and custom ERP/CRM tools.
               </p>
-              <p className="text-slate-400 leading-relaxed mb-8 font-[Inter]">
-                We have developed over <span className="text-violet-400 font-semibold">200+ websites</span>, including <span className="text-cyan-400 font-semibold">50+ e-commerce platforms</span>, and have worked with clients across India, Australia, the United States, United Kingdom, and Dubai.
-              </p>
+
 
               {/* Checklist */}
               <ul className="space-y-3">
                 {[
-                  "Expert team of 15+ skilled professionals",
-                  "Delivered projects for International clients",
+                  "Expert team of 5+ skilled professionals",
+                  "Delivered projects for domestic and International clients",
                   "Full-stack: design, development, AI & automation",
                   "Transparent pricing with dedicated post-launch support",
                 ].map((item, i) => (
@@ -242,17 +239,25 @@ export default function AboutHero() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-14">
             {team.map((member, i) => (
               <div key={i} className="group glass-card-hover card-shine rounded-2xl p-6 text-center">
-                <div
-                  className="w-20 h-20 rounded-2xl flex items-center justify-center font-[Outfit] font-black text-2xl text-white mx-auto mb-4 transition-transform duration-300 group-hover:scale-110"
-                  style={{ background: `linear-gradient(135deg, ${member.color}, ${member.color}88)` }}
-                >
-                  {member.avatar}
+                <div className="relative w-32 h-32 mx-auto mb-5">
+                  {/* Glow effect behind image */}
+                  <div
+                    className="absolute inset-0 rounded-full blur-md opacity-40 group-hover:opacity-60 transition-opacity duration-300"
+                    style={{ background: member.color }}
+                  />
+                  {/* Profile Image */}
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="relative w-full h-full object-cover rounded-full border-2 transition-transform duration-300 group-hover:scale-110"
+                    style={{ borderColor: member.color + '55' }}
+                  />
                 </div>
-                <h3 className="font-[Outfit] font-bold text-white text-sm mb-1">{member.name}</h3>
-                <p className="text-slate-500 text-xs font-[Inter]">{member.role}</p>
+                <h3 className="font-[Outfit] font-bold text-white text-lg mb-1 group-hover:text-violet-300 transition-colors">{member.name}</h3>
+                <p className="text-slate-400 text-sm font-[Inter]">{member.role}</p>
               </div>
             ))}
           </div>

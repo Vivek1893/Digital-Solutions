@@ -1,25 +1,25 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, ExternalLink, Filter } from "lucide-react";
 
 const projects = [
   {
     id: 1,
-    title: "Prestige Real Estate",
-    category: "Web Development",
-    tags: ["WordPress", "SEO", "Responsive"],
+    title: "MNA Capital Advisors",
+    category: "Web Application",
+    tags: ["React", "Tailwind CSS", "Contentful API", "SEO", "Responsive"],
     description: "Premium real estate platform delivering luxury digital experiences with strong SEO, fast performance, and lead-generation funnels.",
-    image: "/images/project.png",
+    image: "/images/mna.png",
     accent: "#7C3AED",
     link: "#",
   },
   {
     id: 2,
-    title: "Evergreen Power",
-    category: "Web Development",
-    tags: ["WordPress", "SEO", "Animations"],
+    title: "Real Estate",
+    category: "Web Application",
+    tags: ["React", "Tailwind CSS", "Contentful API", "SEO", "Animations"],
     description: "A renewable energy brand with a high-impact digital presence — modern design, performance optimization, and top-ranking SEO.",
-    image: "/images/hero.png",
+    image: "/images/goodwill.png",
     accent: "#10B981",
     link: "#",
   },
@@ -95,15 +95,7 @@ const projects = [
   },
 ];
 
-const categories = ["All", "Web Development", "Web App", "E-Commerce", "Mobile App", "ERP/CRM"];
-
 export default function OurWorks() {
-  const [activeFilter, setActiveFilter] = useState("All");
-
-  const filtered = activeFilter === "All"
-    ? projects
-    : projects.filter(p => p.category === activeFilter);
-
   return (
     <div className="bg-[#050711]">
 
@@ -127,9 +119,9 @@ export default function OurWorks() {
           {/* Stats row */}
           <div className="flex flex-wrap justify-center gap-8">
             {[
-              { value: "200+", label: "Projects" },
-              { value: "50+", label: "Clients" },
-              { value: "12+", label: "Industries" },
+              { value: "10+", label: "Projects" },
+              { value: "5+", label: "Clients" },
+              { value: "3+", label: "Industries" },
             ].map((s, i) => (
               <div key={i} className="text-center">
                 <p className="stat-number text-4xl font-black">{s.value}</p>
@@ -146,45 +138,29 @@ export default function OurWorks() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          {/* Filter Tabs */}
-          <div className="flex flex-wrap gap-3 justify-center mb-14">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveFilter(cat)}
-                className={`px-5 py-2 rounded-full text-sm font-[Outfit] font-semibold transition-all duration-200 ${activeFilter === cat
-                    ? 'bg-gradient-to-r from-violet-600 to-cyan-500 text-white shadow-[0_4px_16px_rgba(124,58,237,0.4)]'
-                    : 'glass-card text-slate-400 hover:text-white hover:border-violet-500/40'
-                  }`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
-
           {/* Projects List — full width, one per row */}
           <div className="flex flex-col gap-8">
-            {filtered.map((project, idx) => (
+            {projects.map((project, idx) => (
               <div
                 key={project.id}
-                className="group glass-card-hover card-shine rounded-2xl overflow-hidden cursor-pointer flex flex-col md:flex-row"
+                className={`group glass-card-hover card-shine rounded-2xl overflow-hidden cursor-pointer flex flex-col md:items-center ${idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
                 style={{ borderLeft: `3px solid ${project.accent}66` }}
                 onClick={() => openModal(idx)}
               >
-                {/* Image — left side on desktop */}
-                <div className="relative md:w-96 lg:w-[480px] flex-shrink-0 h-56 md:h-auto overflow-hidden">
+                {/* Image — alternating sides on desktop */}
+                <div className="group/image relative md:w-80 lg:w-[600px] flex-shrink-0 h-56 md:h-[360px] overflow-hidden">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full object-cover object-top transition-all duration-[10s] ease-in-out group-hover/image:object-bottom"
                   />
                   <div
-                    className="absolute inset-0"
-                    style={{ background: `linear-gradient(to right, transparent 70%, #0A0F1E 100%)` }}
+                    className="absolute inset-0 hidden md:block"
+                    style={{ background: `linear-gradient(to ${idx % 2 === 0 ? 'right' : 'left'}, transparent 70%, #0A0F1E 100%)` }}
                   />
                   {/* Number badge */}
                   <div
-                    className="absolute top-4 left-4 w-10 h-10 rounded-full flex items-center justify-center font-[Outfit] font-black text-white text-sm"
+                    className={`absolute top-4 ${idx % 2 === 0 ? 'left-4' : 'right-4'} w-10 h-10 rounded-full flex items-center justify-center font-[Outfit] font-black text-white text-sm`}
                     style={{ background: project.accent + '55', border: `1.5px solid ${project.accent}99` }}
                   >
                     {String(idx + 1).padStart(2, '0')}

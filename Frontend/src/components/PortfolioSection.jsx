@@ -5,17 +5,17 @@ import { ArrowRight, ExternalLink } from "lucide-react";
 const projects = [
   {
     id: 1,
-    title: "E-Commerce Platform",
-    category: "Web Development",
-    image: "/images/project.png",
+    title: "MNA Capital",
+    category: "Web Application",
+    image: "/images/mna.png",
     link: "/project",
     accent: "#7C3AED",
   },
   {
     id: 2,
-    title: "Mobile Banking App",
-    category: "UI/UX Design",
-    image: "/images/project.png",
+    title: "the goodwill facade",
+    category: "Web Application",
+    image: "/images/goodwill.png",
     link: "/project",
     accent: "#06B6D4",
   },
@@ -23,7 +23,7 @@ const projects = [
     id: 3,
     title: "CRM Dashboard",
     category: "ERP/CRM Dev",
-    image: "/images/hero.png",
+    image: "/images/mna.png",
     link: "/project",
     accent: "#F472B6",
   },
@@ -67,7 +67,7 @@ export default function PortfolioSection() {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-auto min-h-full object-cover object-top image-scroll-hover"
                 />
                 {/* Gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1E] via-transparent to-transparent opacity-70" />

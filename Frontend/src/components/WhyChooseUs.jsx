@@ -94,12 +94,12 @@ export default function WhyChooseUs() {
               ))}
             </div>
 
-            <div className="mt-10">
+            {/* <div className="mt-10">
               <Link to="/contact" className="btn-primary">
                 Start Working Together
                 <ArrowRight className="w-5 h-5" />
               </Link>
-            </div>
+            </div> */}
           </div>
 
           {/* Right - Image + Stats */}

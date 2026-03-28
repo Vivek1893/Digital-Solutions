@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle } from "lucide-react";
 
 const highlights = [
-  "5+ Years of Industry Experience",
-  "200+ Successful Projects",
-  "Expert Team of 20+ Professionals",
+  "1+ Years of Industry Experience",
+  "10+ Successful Projects",
+  "Expert Team of 5+ Professionals",
   "24/7 Dedicated Client Support",
 ];
 
@@ -42,12 +42,12 @@ const AboutSection = () => {
 
             {/* Floating stats cards */}
             <div className="absolute -bottom-6 -left-6 glass-card rounded-2xl p-5 shadow-2xl border border-[rgba(124,58,237,0.2)]">
-              <p className="stat-number text-4xl font-black">200+</p>
+              <p className="stat-number text-4xl font-black">10+</p>
               <p className="text-slate-400 text-sm font-[Outfit]">Projects Delivered</p>
             </div>
 
             <div className="absolute -top-4 -right-4 glass-card rounded-2xl p-5 shadow-2xl border border-[rgba(6,182,212,0.2)]">
-              <p className="font-[Outfit] font-black text-4xl" style={{ background: 'linear-gradient(135deg, #06B6D4, #7C3AED)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>50+</p>
+              <p className="font-[Outfit] font-black text-4xl" style={{ background: 'linear-gradient(135deg, #06B6D4, #7C3AED)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>5+</p>
               <p className="text-slate-400 text-sm font-[Outfit]">Happy Clients</p>
             </div>
           </div>

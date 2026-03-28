@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Sparkles, Globe } from "lucide-react";
 
 const stats = [
-  { value: "200+", label: "Projects Delivered" },
-  { value: "50+", label: "Happy Clients" },
-  { value: "5+", label: "Years Experience" },
+  { value: "10+", label: "Projects Delivered" },
+  { value: "5+", label: "Happy Clients" },
+  { value: "1+", label: "Years Experience" },
   { value: "24/7", label: "Support" },
 ];
 
@@ -164,7 +164,7 @@ const HeroQuoteSection = () => {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_55%_at_50%_50%,rgba(124,58,237,0.15),transparent)]" style={{ zIndex: 4 }} />
 
       {/* Content */}
-      <div className="relative w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center" style={{ zIndex: 10 }}>
+      <div className="relative w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-18 text-center" style={{ zIndex: 10 }}>
 
         {/* Badge */}
         <div className="flex justify-center mb-8">

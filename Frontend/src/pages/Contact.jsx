@@ -5,7 +5,7 @@ const contactInfo = [
   {
     icon: MapPin,
     label: "Main Office",
-    value: "Prabhadevi, Mumbai – 400028, Maharashtra, India",
+    value: " Mumbai – 400066, Maharashtra, India",
     color: "#7C3AED",
     href: "https://maps.google.com",
   },
@@ -26,7 +26,7 @@ const contactInfo = [
   {
     icon: Clock,
     label: "Working Hours",
-    value: "Mon – Sat: 10:00 AM – 7:00 PM IST",
+    value: "Mon – Sun: 10:00 AM – 7:00 PM IST",
     color: "#FBBF24",
     href: null,
   },
@@ -398,7 +398,7 @@ const Contact = () => {
             <h2 className="font-[Outfit] font-bold text-3xl text-white mb-2">
               Find Us On <span className="text-gradient">The Map</span>
             </h2>
-            <p className="text-slate-400 text-sm font-[Inter]">Prabhadevi, Mumbai, Maharashtra, India</p>
+            <p className="text-slate-400 text-sm font-[Inter]"> Mumbai, Maharashtra, India</p>
           </div>
 
           <div className="rounded-3xl overflow-hidden neon-border p-1">

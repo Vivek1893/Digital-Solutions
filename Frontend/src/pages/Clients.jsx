@@ -1,32 +1,35 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Star, CheckCircle, Handshake, Clock, Shield } from "lucide-react";
 
 const clients = [
   {
-    name: "ABC Healthcare",
-    industry: "Healthcare Technology",
+    name: "MNA Capital Advisors",
+    industry: "Financial Services",
     service: "Web Application Development",
     description: "Built a comprehensive healthcare management system that streamlined patient workflows and appointment scheduling for a growing clinic chain.",
-    avatar: "AH",
+    avatar: "MA",
+    logo: "/images/mna1.png",
     color: "#10B981",
     tags: ["React", "Node.js", "HIPAA"],
   },
   {
-    name: "EduNext Solutions",
-    industry: "EdTech Platform",
-    service: "Full-Stack Dev & UI/UX Design",
+    name: "The Goodwill Facade",
+    industry: "Glass industry",
+    service: "Web Application Development",
     description: "Designed and developed a feature-rich learning management system with role-based access for students, teachers, and administrators.",
-    avatar: "EN",
+    avatar: "GW",
+    logo: "/images/good.png",
     color: "#7C3AED",
     tags: ["LMS", "React", "AI"],
   },
   {
-    name: "RetailPro Corp",
+    name: "MNA Capital Advisors",
     industry: "Retail & E-Commerce",
     service: "ERP/CRM Development",
     description: "Unified sales, inventory, and HR operations into a single enterprise platform, improving efficiency by over 40% in the first quarter.",
-    avatar: "RP",
+    avatar: "MA",
+    logo: "/images/mna1.png",
     color: "#F472B6",
     tags: ["ERP", "CRM", "API"],
   },
@@ -75,13 +78,46 @@ const idealFor = [
 ];
 
 const stats = [
-  { value: "50+", label: "Happy Clients", desc: "Across 12+ industries", icon: "🤝" },
-  { value: "200+", label: "Projects Done", desc: "On time & on budget", icon: "✅" },
+  { value: "5+", label: "Happy Clients", desc: "Across 3+ industries", icon: "🤝" },
+  { value: "10+", label: "Projects Done", desc: "On time & on budget", icon: "✅" },
   { value: "100%", label: "Satisfaction", desc: "Guaranteed quality", icon: "⭐" },
-  { value: "5+", label: "Years Active", desc: "Proven track record", icon: "🏆" },
+  { value: "1+", label: "Years Active", desc: "Proven track record", icon: "🏆" },
+];
+
+const clientTestimonials = [
+  {
+    name: "Sarah Johnson",
+    role: "CEO, ABC Healthcare",
+    text: "Working with Trivexon has been transformative. They don't just build websites — they build solutions that actually work and deliver real results. The attention to detail and their commitment to our success has been outstanding.",
+    avatar: "SJ",
+    gradient: "from-violet-600 to-cyan-500",
+  },
+  {
+    name: "Michael Chen",
+    role: "Director, Nexus Technologies",
+    text: "Their team was instrumental in scaling our digital infrastructure. Highly responsive, profoundly skilled, and always delivered exactly what we needed on time.",
+    avatar: "MC",
+    gradient: "from-blue-600 to-indigo-500",
+  },
+  {
+    name: "Priya Sharma",
+    role: "Founder, Elevate Design",
+    text: "An absolute pleasure to work with. They took our vague ideas and turned them into a stunning, high-performance platform that our users absolutely love.",
+    avatar: "PS",
+    gradient: "from-pink-600 to-rose-500",
+  },
 ];
 
 export default function Clients() {
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTestimonial((prev) => (prev === clientTestimonials.length - 1 ? 0 : prev + 1));
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <div className="bg-[#050711]">
 
@@ -154,10 +190,14 @@ export default function Clients() {
                 {/* Header */}
                 <div className="flex items-center gap-4 mb-5">
                   <div
-                    className="w-14 h-14 rounded-2xl flex items-center justify-center font-[Outfit] font-black text-lg text-white flex-shrink-0 transition-transform duration-300 group-hover:scale-110"
-                    style={{ background: `linear-gradient(135deg, ${client.color}, ${client.color}88)` }}
+                    className="w-14 h-14 rounded-2xl flex items-center justify-center font-[Outfit] font-black text-lg text-white flex-shrink-0 transition-transform duration-300 group-hover:scale-110 overflow-hidden"
+                    style={{ background: client.logo ? 'rgba(255,255,255,0.05)' : `linear-gradient(135deg, ${client.color}, ${client.color}88)` }}
                   >
-                    {client.avatar}
+                    {client.logo ? (
+                      <img src={client.logo} alt={`${client.name} logo`} className="w-full h-full object-cover" />
+                    ) : (
+                      client.avatar
+                    )}
                   </div>
                   <div>
                     <h3 className="font-[Outfit] font-bold text-white text-base group-hover:text-violet-300 transition-colors">{client.name}</h3>
@@ -243,23 +283,42 @@ export default function Clients() {
         <div className="absolute inset-0 hero-grid opacity-20" />
 
         <div className="relative max-w-4xl mx-auto px-4 text-center">
-          <div className="glass-card rounded-3xl p-10 border border-[rgba(124,58,237,0.2)]">
+          <div className="glass-card rounded-3xl p-10 border border-[rgba(124,58,237,0.2)] relative">
             <div className="flex justify-center gap-1 mb-6">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
               ))}
             </div>
-            <p className="text-slate-200 text-xl leading-relaxed font-[Inter] italic mb-8">
-              "Working with Trivexon has been transformative. They don't just build websites — they build solutions that actually work and deliver real results. The attention to detail and their commitment to our success has been outstanding."
-            </p>
-            <div className="flex items-center justify-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-violet-600 to-cyan-500 flex items-center justify-center font-[Outfit] font-black text-white">
-                SJ
+            
+            <div className="transition-opacity duration-500">
+              <p className="text-slate-200 text-xl leading-relaxed font-[Inter] italic mb-8 min-h-[140px] md:min-h-[100px] flex items-center justify-center max-w-2xl mx-auto">
+                "{clientTestimonials[currentTestimonial].text}"
+              </p>
+              <div className="flex items-center justify-center gap-4">
+                <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${clientTestimonials[currentTestimonial].gradient} flex items-center justify-center font-[Outfit] font-black text-white transition-all`}>
+                  {clientTestimonials[currentTestimonial].avatar}
+                </div>
+                <div className="text-left">
+                  <p className="font-[Outfit] font-semibold text-white">{clientTestimonials[currentTestimonial].name}</p>
+                  <p className="text-slate-500 text-sm font-[Inter]">{clientTestimonials[currentTestimonial].role}</p>
+                </div>
               </div>
-              <div className="text-left">
-                <p className="font-[Outfit] font-semibold text-white">Sarah Johnson</p>
-                <p className="text-slate-500 text-sm font-[Inter]">CEO, ABC Healthcare</p>
-              </div>
+            </div>
+
+            {/* Testimonial slider dots */}
+            <div className="flex justify-center gap-2 mt-8">
+              {clientTestimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentTestimonial(index)}
+                  className={`transition-all duration-300 rounded-full ${
+                    currentTestimonial === index 
+                      ? 'w-8 h-2 bg-gradient-to-r from-violet-500 to-cyan-500' 
+                      : 'w-2 h-2 bg-[rgba(255,255,255,0.15)] hover:bg-[rgba(255,255,255,0.3)]'
+                  }`}
+                  aria-label={`Go to testimonial ${index + 1}`}
+                />
+              ))}
             </div>
           </div>
         </div>
