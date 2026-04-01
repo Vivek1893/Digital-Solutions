@@ -21,10 +21,10 @@ const footerLinks = {
 };
 
 const socials = [
-  { icon: Twitter, href: "#", label: "Twitter" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Instagram, href: "#", label: "Instagram" },
-  { icon: Github, href: "#", label: "GitHub" },
+  // { icon: Twitter, href: "#", label: "Twitter" },
+  { icon: Linkedin, href: "https://www.linkedin.com/company/trivexon/", label: "LinkedIn" },
+  { icon: Instagram, href: "https://www.instagram.com/trivexon?igsh=NjlqaXYyb280aDRy", label: "Instagram" },
+  // { icon: Github, href: "#", label: "GitHub" },
 ];
 
 const SimpleFooter = () => {
@@ -37,11 +37,11 @@ const SimpleFooter = () => {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
         {/* Top Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-          
+
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <Link to="/" className="inline-block mb-5">
-              <img src="/images/logo.jpeg" alt="Trivexon" className="h-12 rounded-xl object-contain" />
+              <img src="/images/logo1.png" alt="Trivexon" className="h-15 rounded-xl object-contain" />
             </Link>
             <p className="text-slate-400 text-sm leading-relaxed mb-6 font-[Inter]">
               We craft premium digital experiences — from AI-powered automation to stunning web platforms that grow your business.
@@ -111,16 +111,16 @@ const SimpleFooter = () => {
                 <div className="w-8 h-8 rounded-lg bg-[rgba(6,182,212,0.1)] border border-[rgba(6,182,212,0.2)] flex items-center justify-center flex-shrink-0">
                   <Mail className="w-4 h-4 text-cyan-400" />
                 </div>
-                <a href="mailto:info@trivexon.com" className="text-slate-400 hover:text-cyan-400 text-sm font-[Inter] transition-colors">
-                  info@trivexon.com
+                <a href="mailto:trivexontech@gmail.com" className="text-slate-400 hover:text-cyan-400 text-sm font-[Inter] transition-colors">
+                  trivexontech@gmail.com
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <div className="w-8 h-8 rounded-lg bg-[rgba(244,114,182,0.1)] border border-[rgba(244,114,182,0.2)] flex items-center justify-center flex-shrink-0">
                   <Phone className="w-4 h-4 text-pink-400" />
                 </div>
-                <a href="tel:+911234567890" className="text-slate-400 hover:text-pink-400 text-sm font-[Inter] transition-colors">
-                  +91 12345 67890
+                <a href="tel:+918657181101" className="text-slate-400 hover:text-pink-400 text-sm font-[Inter] transition-colors">
+                  +91 86571 81101
                 </a>
               </li>
             </ul>
@@ -133,7 +133,7 @@ const SimpleFooter = () => {
         {/* Bottom Bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-slate-500 text-sm font-[Inter]">
-            © 2025 <span className="text-violet-400 font-semibold">Trivexon</span>. All rights reserved.
+            © 2026 <span className="text-violet-400 font-semibold">Trivexon</span>. All rights reserved.
           </p>
           <div className="flex items-center gap-6 text-sm text-slate-500 font-[Inter]">
             <a href="#" className="hover:text-violet-400 transition-colors">Privacy Policy</a>

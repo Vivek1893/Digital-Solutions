@@ -3,40 +3,28 @@ import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Raamnaath Gopalakrishnan",
-    role: "CEO, TechVentures",
-    text: "Trivexon has been working with us for over four years, handling our website, landing pages, and digital campaigns. They consistently deliver exceptional results that exceed expectations.",
-    avatar: "R",
+    name: "Vishal Laheri ",
+    role: "Founder, MNA Capital Advisors",
+    text: "We engaged Trivexon to develop our website and were highly satisfied with their timely delivery, dedication, and professional approach. Impressed by their performance, we expanded the engagement to automate our key report generation and database systems, resulting in substantial efficiency gains for our team at MNA Capital Advisors. Trivexon has become our trusted technology partner—strongly recommended for web development and process automation needs.",
+    avatar: "VL",
     color: "#7C3AED",
   },
   {
-    name: "Sachinam Inc.",
-    role: "Founder, E-commerce Brand",
-    text: "From the initial consultation to the final website launch, the team was incredibly professional. They transformed our vision into a stunning digital experience that truly represents our brand.",
-    avatar: "S",
+    name: "Neel",
+    role: "Founder, thegoodwillfacade",
+    text: "We are extremely happy with the website developed for The Goodwill Facade by Trivexon. Their team truly understood our vision and transformed it into a modern, professional, and visually appealing website.The design is clean, user-friendly, and perfectly showcases our services. The performance and responsiveness across all devices have been excellent, helping us create a strong online presence.Trivexon’s attention to detail, creativity, and timely delivery made the entire process smooth and hassle-free. We highly recommend Trivexon to anyone looking for high-quality website development services.",
+    avatar: "NL",
     color: "#06B6D4",
   },
-  {
-    name: "Savita Ballal",
-    role: "Owner, Boutique Store",
-    text: "I recently had a collaboration with Trivexon to build my online store. The team was incredibly professional and attentive to every detail. The final product surpassed all my expectations!",
-    avatar: "SB",
-    color: "#F472B6",
-  },
-  {
-    name: "Arjun Mehta",
-    role: "Director, Logistics Corp",
-    text: "Outstanding team! They built our ERP system with precision and deep domain understanding. Our operational efficiency improved by 40% within the first quarter after launch.",
-    avatar: "AM",
-    color: "#10B981",
-  },
-  {
-    name: "Priya Sharma",
-    role: "Marketing Head, FinTech",
-    text: "The AI automation solutions Trivexon built for us completely transformed how we work. We've automated 70% of our repetitive tasks and our team can now focus on growth.",
-    avatar: "PS",
-    color: "#FBBF24",
-  },
+  // {
+  //   name: "Savita Ballal",
+  //   role: "Owner, Boutique Store",
+  //   text: "I recently had a collaboration with Trivexon to build my online store. The team was incredibly professional and attentive to every detail. The final product surpassed all my expectations!",
+  //   avatar: "SB",
+  //   color: "#F472B6",
+  // },
+
+
 ];
 
 export default function Testimonials() {
@@ -73,8 +61,8 @@ export default function Testimonials() {
               onClick={handlePrev}
               disabled={currentIndex === 0}
               className={`w-11 h-11 rounded-xl border flex items-center justify-center transition-all duration-200 ${currentIndex === 0
-                  ? 'border-[rgba(255,255,255,0.06)] text-slate-600 cursor-not-allowed'
-                  : 'border-[rgba(124,58,237,0.3)] text-violet-400 hover:bg-[rgba(124,58,237,0.1)] hover:border-violet-500'
+                ? 'border-[rgba(255,255,255,0.06)] text-slate-600 cursor-not-allowed'
+                : 'border-[rgba(124,58,237,0.3)] text-violet-400 hover:bg-[rgba(124,58,237,0.1)] hover:border-violet-500'
                 }`}
             >
               <ChevronLeft className="w-5 h-5" />
@@ -83,8 +71,8 @@ export default function Testimonials() {
               onClick={handleNext}
               disabled={currentIndex >= maxIndex}
               className={`w-11 h-11 rounded-xl border flex items-center justify-center transition-all duration-200 ${currentIndex >= maxIndex
-                  ? 'border-[rgba(255,255,255,0.06)] text-slate-600 cursor-not-allowed'
-                  : 'border-[rgba(124,58,237,0.3)] text-violet-400 hover:bg-[rgba(124,58,237,0.1)] hover:border-violet-500'
+                ? 'border-[rgba(255,255,255,0.06)] text-slate-600 cursor-not-allowed'
+                : 'border-[rgba(124,58,237,0.3)] text-violet-400 hover:bg-[rgba(124,58,237,0.1)] hover:border-violet-500'
                 }`}
             >
               <ChevronRight className="w-5 h-5" />
@@ -93,7 +81,7 @@ export default function Testimonials() {
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {visible.map((item, index) => (
             <div
               key={currentIndex + index}
@@ -128,13 +116,13 @@ export default function Testimonials() {
                   <p className="font-[Outfit] font-semibold text-white text-sm">{item.name}</p>
                   <p className="text-slate-500 text-xs font-[Inter]">{item.role}</p>
                 </div>
-                <div className="ml-auto">
+                {/* <div className="ml-auto">
                   <img
                     src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"
                     alt="Google Review"
                     className="w-5 h-5 opacity-60"
                   />
-                </div>
+                </div> */}
               </div>
             </div>
           ))}
@@ -147,8 +135,8 @@ export default function Testimonials() {
               key={i}
               onClick={() => setCurrentIndex(i)}
               className={`transition-all duration-300 rounded-full ${currentIndex === i
-                  ? 'w-8 h-2 bg-gradient-to-r from-violet-500 to-cyan-500'
-                  : 'w-2 h-2 bg-[rgba(255,255,255,0.15)] hover:bg-[rgba(255,255,255,0.3)]'
+                ? 'w-8 h-2 bg-gradient-to-r from-violet-500 to-cyan-500'
+                : 'w-2 h-2 bg-[rgba(255,255,255,0.15)] hover:bg-[rgba(255,255,255,0.3)]'
                 }`}
             />
           ))}

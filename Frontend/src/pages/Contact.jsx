@@ -5,23 +5,25 @@ const contactInfo = [
   {
     icon: MapPin,
     label: "Main Office",
-    value: " Mumbai – 400066, Maharashtra, India",
+    value: "Borivali West, Mumbai – 400066, Maharashtra, India",
     color: "#7C3AED",
-    href: "https://maps.google.com",
+    href: "https://www.google.com/maps/place/Borivali+West,+Mumbai,+Maharashtra+400092/@19.2306,72.8545,15z",
   },
   {
     icon: Mail,
     label: "Email Us",
-    value: "info@trivexon.com",
+    value: "trivexontech@gmail.com",
     color: "#06B6D4",
-    href: "mailto:info@trivexon.com",
+    href: "mailto:trivexontech@gmail.com",
   },
   {
     icon: Phone,
     label: "Call Us",
-    value: "+91 98199 22521",
+    value: "+91 8655685272",
+    value2: "+91 8657181101",
     color: "#F472B6",
-    href: "tel:+919819922521",
+    href: "tel:+918655685272",
+    href2: "tel:+918657181101",
   },
   {
     icon: Clock,
@@ -117,14 +119,26 @@ const Contact = () => {
                 </div>
                 <p className="text-slate-500 text-xs font-[Outfit] uppercase tracking-widest mb-1">{item.label}</p>
                 {item.href ? (
-                  <a
-                    href={item.href}
-                    className="text-slate-200 text-sm font-[Inter] leading-relaxed hover:text-violet-400 transition-colors"
-                    target={item.href.startsWith('http') ? '_blank' : undefined}
-                    rel="noopener noreferrer"
-                  >
-                    {item.value}
-                  </a>
+                  <div className="flex flex-col gap-1">
+                    <a
+                      href={item.href}
+                      className="text-slate-200 text-sm font-[Inter] leading-relaxed hover:text-violet-400 transition-colors"
+                      target={item.href.startsWith('http') ? '_blank' : undefined}
+                      rel="noopener noreferrer"
+                    >
+                      {item.value}
+                    </a>
+                    {item.href2 && (
+                      <a
+                        href={item.href2}
+                        className="text-slate-200 text-sm font-[Inter] leading-relaxed hover:text-violet-400 transition-colors"
+                        target={item.href2.startsWith('http') ? '_blank' : undefined}
+                        rel="noopener noreferrer"
+                      >
+                        {item.value2}
+                      </a>
+                    )}
+                  </div>
                 ) : (
                   <p className="text-slate-200 text-sm font-[Inter] leading-relaxed">{item.value}</p>
                 )}
@@ -398,13 +412,13 @@ const Contact = () => {
             <h2 className="font-[Outfit] font-bold text-3xl text-white mb-2">
               Find Us On <span className="text-gradient">The Map</span>
             </h2>
-            <p className="text-slate-400 text-sm font-[Inter]"> Mumbai, Maharashtra, India</p>
+            <p className="text-slate-400 text-sm font-[Inter]"> Borivali (West), Mumbai, Maharashtra, India</p>
           </div>
 
           <div className="rounded-3xl overflow-hidden neon-border p-1">
             <iframe
               title="Trivexon Location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3772.2!2d72.822!3d18.997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ce70b1e0e6e5%3A0x0!2sPrabhadevi%2C%20Mumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1234567890"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.4!2d72.8544!3d19.2307!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b0ffd11b60d7%3A0x76af39fe89e17bbd!2sBorivali+West%2C+Mumbai%2C+Maharashtra+400092!5e0!3m2!1sen!2sin!4v1711000000001"
               width="100%"
               height="380"
               style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) brightness(0.85) contrast(1.1)' }}

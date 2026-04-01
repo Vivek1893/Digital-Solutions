@@ -63,11 +63,10 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? 'backdrop-blur-2xl bg-[#050711]/90 border-b border-[rgba(124,58,237,0.2)] shadow-[0_4px_32px_rgba(124,58,237,0.12)]'
-          : 'bg-transparent'
-      }`}>
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
+        ? 'backdrop-blur-2xl bg-[#050711]/90 border-b border-[rgba(124,58,237,0.2)] shadow-[0_4px_32px_rgba(124,58,237,0.12)]'
+        : 'bg-transparent'
+        }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
 
@@ -76,7 +75,7 @@ const Navbar = () => {
               <div className="relative">
                 <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-violet-600 to-cyan-500 blur-md opacity-0 group-hover:opacity-60 transition-opacity duration-300" />
                 <img
-                  src="/images/logo.jpeg"
+                  src="/images/logo1.png"
                   alt="Trivexon"
                   className="relative h-12 w-auto rounded-xl object-contain"
                 />
@@ -89,24 +88,24 @@ const Navbar = () => {
                 <Link
                   key={link.to}
                   to={link.to}
-                  className={`relative text-sm font-medium font-[Outfit] transition-colors duration-200 group ${
-                    isActive(link.to)
-                      ? 'text-violet-400'
-                      : 'text-slate-300 hover:text-white'
-                  }`}
+                  className={`relative text-lg font-medium font-[Outfit] transition-colors duration-200 group ${isActive(link.to)
+                    ? 'text-violet-400'
+                    : 'text-slate-300 hover:text-white'
+                    }`}
                 >
                   {link.label}
-                  <span className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-violet-500 to-cyan-500 transition-all duration-300 ${
-                    isActive(link.to) ? 'w-full' : 'w-0 group-hover:w-full'
-                  }`} />
+                  <span className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-violet-500 to-cyan-500 transition-all duration-300 ${isActive(link.to) ? 'w-full' : 'w-0 group-hover:w-full'
+                    }`} />
                 </Link>
               ))}
 
               {/* Services Dropdown */}
-              <div className="relative">
+              <div
+                className="relative"
+                onMouseEnter={() => setServicesOpen(true)}
+                onMouseLeave={() => setServicesOpen(false)}
+              >
                 <button
-                  onMouseEnter={() => setServicesOpen(true)}
-                  onMouseLeave={() => setServicesOpen(false)}
                   onClick={() => setServicesOpen(!servicesOpen)}
                   className="flex items-center gap-1.5 text-sm font-medium font-[Outfit] text-slate-300 hover:text-white transition-colors duration-200 group"
                 >
@@ -115,13 +114,13 @@ const Navbar = () => {
                   <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gradient-to-r from-violet-500 to-cyan-500 transition-all duration-300 group-hover:w-full" />
                 </button>
 
+                {/* Invisible bridge — covers gap between button and dropdown */}
+                <div className="absolute top-full left-0 right-0 h-4" />
+
                 {/* Mega Dropdown */}
                 <div
-                  onMouseEnter={() => setServicesOpen(true)}
-                  onMouseLeave={() => setServicesOpen(false)}
-                  className={`absolute top-full right-0 mt-3 w-[520px] rounded-2xl border border-[rgba(124,58,237,0.2)] bg-[#0A0F1E]/95 backdrop-blur-2xl shadow-[0_20px_60px_rgba(124,58,237,0.2)] transition-all duration-300 ${
-                    servicesOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-2 pointer-events-none'
-                  }`}
+                  className={`absolute top-full right-0 mt-4 w-[520px] rounded-2xl border border-[rgba(124,58,237,0.2)] bg-[#0A0F1E]/95 backdrop-blur-2xl shadow-[0_20px_60px_rgba(124,58,237,0.2)] transition-all duration-300 ${servicesOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-2 pointer-events-none'
+                    }`}
                 >
                   <div className="p-3">
                     <p className="text-xs font-semibold text-violet-400 uppercase tracking-widest px-3 pt-2 pb-3 font-[Outfit]">Our Services</p>
@@ -148,16 +147,14 @@ const Navbar = () => {
                 <Link
                   key={link.to}
                   to={link.to}
-                  className={`relative text-sm font-medium font-[Outfit] transition-colors duration-200 group ${
-                    isActive(link.to)
-                      ? 'text-violet-400'
-                      : 'text-slate-300 hover:text-white'
-                  }`}
+                  className={`relative text-sm font-medium font-[Outfit] transition-colors duration-200 group ${isActive(link.to)
+                    ? 'text-violet-400'
+                    : 'text-slate-300 hover:text-white'
+                    }`}
                 >
                   {link.label}
-                  <span className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-violet-500 to-cyan-500 transition-all duration-300 ${
-                    isActive(link.to) ? 'w-full' : 'w-0 group-hover:w-full'
-                  }`} />
+                  <span className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-violet-500 to-cyan-500 transition-all duration-300 ${isActive(link.to) ? 'w-full' : 'w-0 group-hover:w-full'
+                    }`} />
                 </Link>
               ))}
 
@@ -183,9 +180,8 @@ const Navbar = () => {
             <Link
               key={link.to}
               to={link.to}
-              className={`py-4 text-lg font-[Outfit] font-semibold border-b border-[rgba(255,255,255,0.06)] transition-colors ${
-                isActive(link.to) ? 'text-violet-400' : 'text-slate-200 hover:text-violet-400'
-              }`}
+              className={`py-4 text-lg font-[Outfit] font-semibold border-b border-[rgba(255,255,255,0.06)] transition-colors ${isActive(link.to) ? 'text-violet-400' : 'text-slate-200 hover:text-violet-400'
+                }`}
             >
               {link.label}
             </Link>
@@ -219,9 +215,8 @@ const Navbar = () => {
             <Link
               key={link.to}
               to={link.to}
-              className={`py-4 text-lg font-[Outfit] font-semibold border-b border-[rgba(255,255,255,0.06)] transition-colors ${
-                isActive(link.to) ? 'text-violet-400' : 'text-slate-200 hover:text-violet-400'
-              }`}
+              className={`py-4 text-lg font-[Outfit] font-semibold border-b border-[rgba(255,255,255,0.06)] transition-colors ${isActive(link.to) ? 'text-violet-400' : 'text-slate-200 hover:text-violet-400'
+                }`}
             >
               {link.label}
             </Link>
@@ -256,7 +251,7 @@ const Navbar = () => {
       >
         {/* WhatsApp SVG */}
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="white">
-          <path d="M16 2C8.268 2 2 8.268 2 16c0 2.492.637 4.833 1.754 6.865L2 30l7.324-1.724C11.238 29.384 13.563 30 16 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm0 25.5c-2.188 0-4.242-.584-6.02-1.604l-.43-.254-4.346 1.023 1.054-4.24-.278-.44A11.44 11.44 0 014.5 16C4.5 9.649 9.649 4.5 16 4.5S27.5 9.649 27.5 16 22.351 27.5 16 27.5zm6.29-8.42c-.344-.172-2.04-1.006-2.355-1.12-.315-.115-.544-.172-.773.172-.229.344-.887 1.12-1.087 1.35-.2.23-.4.258-.744.086-.344-.172-1.452-.535-2.766-1.706-1.022-.912-1.712-2.038-1.912-2.382-.2-.344-.022-.53.15-.701.155-.155.344-.4.516-.602.172-.2.229-.344.344-.573.115-.229.057-.43-.029-.602-.086-.172-.773-1.864-1.059-2.553-.279-.672-.563-.58-.773-.59l-.658-.012a1.264 1.264 0 00-.916.43c-.315.344-1.202 1.175-1.202 2.866 0 1.69 1.23 3.325 1.401 3.554.172.229 2.42 3.697 5.865 5.186.82.354 1.46.566 1.958.724.823.262 1.572.225 2.164.137.66-.099 2.04-.833 2.327-1.638.287-.805.287-1.494.2-1.638-.086-.143-.315-.229-.658-.4z"/>
+          <path d="M16 2C8.268 2 2 8.268 2 16c0 2.492.637 4.833 1.754 6.865L2 30l7.324-1.724C11.238 29.384 13.563 30 16 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm0 25.5c-2.188 0-4.242-.584-6.02-1.604l-.43-.254-4.346 1.023 1.054-4.24-.278-.44A11.44 11.44 0 014.5 16C4.5 9.649 9.649 4.5 16 4.5S27.5 9.649 27.5 16 22.351 27.5 16 27.5zm6.29-8.42c-.344-.172-2.04-1.006-2.355-1.12-.315-.115-.544-.172-.773.172-.229.344-.887 1.12-1.087 1.35-.2.23-.4.258-.744.086-.344-.172-1.452-.535-2.766-1.706-1.022-.912-1.712-2.038-1.912-2.382-.2-.344-.022-.53.15-.701.155-.155.344-.4.516-.602.172-.2.229-.344.344-.573.115-.229.057-.43-.029-.602-.086-.172-.773-1.864-1.059-2.553-.279-.672-.563-.58-.773-.59l-.658-.012a1.264 1.264 0 00-.916.43c-.315.344-1.202 1.175-1.202 2.866 0 1.69 1.23 3.325 1.401 3.554.172.229 2.42 3.697 5.865 5.186.82.354 1.46.566 1.958.724.823.262 1.572.225 2.164.137.66-.099 2.04-.833 2.327-1.638.287-.805.287-1.494.2-1.638-.086-.143-.315-.229-.658-.4z" />
         </svg>
         <style>{`
           @keyframes waPulse {

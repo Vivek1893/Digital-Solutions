@@ -41,58 +41,39 @@ const projects = [
     description: "Premium property portal with immersive virtual tours, advanced search, and an integrated CRM for high-end real estate transactions.",
     image: "/images/Healthy.png",
     accent: "#FBBF24",
-    link: "https://healthys-five.vercel.app/",
+    link: "#",
   },
   {
     id: 5,
-    title: "FoodieExpress",
-    category: "Mobile App",
+    title: "Valuation Automation System",
+    category: "Financial Services & Regulatory Compliance",
     tags: ["React Native", "Payment", "GPS"],
-    description: "Full-stack food delivery platform with real-time tracking, payment gateway integration, and a restaurant management system.",
-    image: "/images/project.png",
+    description: "We designed and delivered a comprehensive desktop application that digitizes the complete valuation lifecycle — from client onboarding to digitally signed, tamper-proof report delivery.The system covers:Client & KYC Management — Centralized client database with auto-generated client codes, KYC profiling, PEP checks, risk categorization, and document uploads......",
+    image: "/images/valuation.jpeg",
     accent: "#F472B6",
     link: "#",
   },
-  {
-    id: 6,
-    title: "HealthPlus Medical",
-    category: "Web App",
-    tags: ["HIPAA", "Secure", "Cloud"],
-    description: "Comprehensive healthcare management system with patient portals, appointment scheduling, and telemedicine capabilities.",
-    image: "/images/hero.png",
-    accent: "#A855F7",
-    link: "#",
-  },
-  {
-    id: 7,
-    title: "EduNext LMS",
-    category: "Web App",
-    tags: ["React", "Node.js", "AI"],
-    description: "AI-enhanced learning management system with role-based access, live classes, analytics dashboards, and gamified learning paths.",
-    image: "/images/project.png",
-    accent: "#06B6D4",
-    link: "#",
-  },
-  {
-    id: 8,
-    title: "RetailPro ERP",
-    category: "ERP/CRM",
-    tags: ["ERP", "CRM", "API"],
-    description: "Custom enterprise resource planning system unifying sales, inventory, HR, and finance for a fast-growing retail chain.",
-    image: "/images/aboutus.png",
-    accent: "#10B981",
-    link: "#",
-  },
-  {
-    id: 9,
-    title: "ShopZone E-Commerce",
-    category: "E-Commerce",
-    tags: ["Shopify", "UI/UX", "SEO"],
-    description: "High-converting e-commerce store with optimized product pages, custom checkout experience, and integrated analytics.",
-    image: "/images/project.png",
-    accent: "#F472B6",
-    link: "#",
-  },
+  // {
+  //   id: 6,
+  //   title: "HealthPlus Medical",
+  //   category: "Web App",
+  //   tags: ["HIPAA", "Secure", "Cloud"],
+  //   description: "Comprehensive healthcare management system with patient portals, appointment scheduling, and telemedicine capabilities.",
+  //   image: "/images/hero.png",
+  //   accent: "#A855F7",
+  //   link: "#",
+  // },
+  // {
+  //   id: 7,
+  //   title: "EduNext LMS",
+  //   category: "Web App",
+  //   tags: ["React", "Node.js", "AI"],
+  //   description: "AI-enhanced learning management system with role-based access, live classes, analytics dashboards, and gamified learning paths.",
+  //   image: "/images/project.png",
+  //   accent: "#06B6D4",
+  //   link: "#",
+  // },
+
 ];
 
 export default function OurWorks() {
@@ -236,7 +217,7 @@ export default function OurWorks() {
             Ready to Be Our <span className="text-gradient">Next Project?</span>
           </h2>
           <p className="section-desc mb-10">
-            Join 50+ satisfied clients. Let's discuss your project and create something remarkable together.
+            Join 5+ satisfied clients. Let's discuss your project and create something remarkable together.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact" className="btn-primary text-base px-8 py-4">

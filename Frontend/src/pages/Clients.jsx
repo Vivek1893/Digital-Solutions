@@ -8,7 +8,7 @@ const clients = [
     industry: "Financial Services",
     service: "Web Application Development",
     description: "Built a comprehensive healthcare management system that streamlined patient workflows and appointment scheduling for a growing clinic chain.",
-    avatar: "MA",
+    avatar: "MNA",
     logo: "/images/mna1.png",
     color: "#10B981",
     tags: ["React", "Node.js", "HIPAA"],
@@ -25,41 +25,43 @@ const clients = [
   },
   {
     name: "MNA Capital Advisors",
-    industry: "Retail & E-Commerce",
+    industry: "Financial Services",
     service: "ERP/CRM Development",
     description: "Unified sales, inventory, and HR operations into a single enterprise platform, improving efficiency by over 40% in the first quarter.",
-    avatar: "MA",
+    avatar: "MNA",
     logo: "/images/mna1.png",
     color: "#F472B6",
     tags: ["ERP", "CRM", "API"],
   },
   {
-    name: "Prestige Realty",
-    industry: "Real Estate",
-    service: "Web Design & SEO",
-    description: "Created a stunning luxury real estate website with immersive property tours, advanced search, and a lead-generation funnel.",
-    avatar: "PR",
+    name: "MNA Capital Advisors",
+    industry: "Financial Services",
+    service: "SEBI DRHP Automation & AI Summarization Software (Desktop EXE)",
+    description: "Development and delivery of a custom desktop-based SEBI DRHP Automation Software,provided as a compiled Windows EXE, designed to automate the end-to-end processing of SEBI DRHP filings",
+    avatar: "MNA",
+    logo: "/images/mna1.png",
     color: "#FBBF24",
     tags: ["WordPress", "SEO", "Design"],
   },
   {
-    name: "CloudBridge Logistics",
-    industry: "Logistics & Supply Chain",
-    service: "AI Automation & Dashboard",
-    description: "Implemented AI-powered route optimization and real-time shipment tracking, reducing delivery costs by 25%.",
-    avatar: "CB",
+    name: "MNA Capital Advisors",
+    industry: "Financial Services",
+    service: "Valuation Automation System Software",
+    description: "We designed and delivered a comprehensive desktop application that digitizes the complete valuation lifecycle — from client onboarding to digitally signed, tamper-proof report delivery..",
+    avatar: "MNA",
+    logo: "/images/mna1.png",
     color: "#06B6D4",
     tags: ["AI", "Automation", "Cloud"],
   },
-  {
-    name: "FinEdge Investments",
-    industry: "Financial Services",
-    service: "Secure Web Application",
-    description: "Developed a secure, SEBI-compliant investment tracking dashboard with multi-factor authentication and real-time portfolio analytics.",
-    avatar: "FE",
-    color: "#A855F7",
-    tags: ["Security", "FinTech", "Dashboard"],
-  },
+  // {
+  //   name: "FinEdge Investments",
+  //   industry: "Financial Services",
+  //   service: "Secure Web Application",
+  //   description: "Developed a secure, SEBI-compliant investment tracking dashboard with multi-factor authentication and real-time portfolio analytics.",
+  //   avatar: "FE",
+  //   color: "#A855F7",
+  //   tags: ["Security", "FinTech", "Dashboard"],
+  // },
 ];
 
 const processSteps = [
@@ -86,26 +88,26 @@ const stats = [
 
 const clientTestimonials = [
   {
-    name: "Sarah Johnson",
-    role: "CEO, ABC Healthcare",
-    text: "Working with Trivexon has been transformative. They don't just build websites — they build solutions that actually work and deliver real results. The attention to detail and their commitment to our success has been outstanding.",
-    avatar: "SJ",
+    name: "Vishal Laheri",
+    role: "Founder, MNA Capital Advisors",
+    text: "We engaged Trivexon to develop our website and were highly satisfied with their timely delivery, dedication, and professional approach. Impressed by their performance, we expanded the engagement to automate our key report generation and database systems, resulting in substantial efficiency gains for our team at MNA Capital Advisors. Trivexon has become our trusted technology partner—strongly recommended for web development and process automation needs.",
+    avatar: "VL",
     gradient: "from-violet-600 to-cyan-500",
   },
   {
-    name: "Michael Chen",
-    role: "Director, Nexus Technologies",
-    text: "Their team was instrumental in scaling our digital infrastructure. Highly responsive, profoundly skilled, and always delivered exactly what we needed on time.",
-    avatar: "MC",
+    name: "Neel",
+    role: "Founder, thegoodwillfacade",
+    text: "We are extremely happy with the website developed for The Goodwill Facade by Trivexon. Their team truly understood our vision and transformed it into a modern, professional, and visually appealing website.The design is clean, user-friendly, and perfectly showcases our services. The performance and responsiveness across all devices have been excellent, helping us create a strong online presence.Trivexon’s attention to detail, creativity, and timely delivery made the entire process smooth and hassle-free. We highly recommend Trivexon to anyone looking for high-quality website development services.",
+    avatar: "NL",
     gradient: "from-blue-600 to-indigo-500",
   },
-  {
-    name: "Priya Sharma",
-    role: "Founder, Elevate Design",
-    text: "An absolute pleasure to work with. They took our vague ideas and turned them into a stunning, high-performance platform that our users absolutely love.",
-    avatar: "PS",
-    gradient: "from-pink-600 to-rose-500",
-  },
+  // {
+  //   name: "Priya Sharma",
+  //   role: "Founder, Elevate Design",
+  //   text: "An absolute pleasure to work with. They took our vague ideas and turned them into a stunning, high-performance platform that our users absolutely love.",
+  //   avatar: "PS",
+  //   gradient: "from-pink-600 to-rose-500",
+  // },
 ];
 
 export default function Clients() {
@@ -289,7 +291,7 @@ export default function Clients() {
                 <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
               ))}
             </div>
-            
+
             <div className="transition-opacity duration-500">
               <p className="text-slate-200 text-xl leading-relaxed font-[Inter] italic mb-8 min-h-[140px] md:min-h-[100px] flex items-center justify-center max-w-2xl mx-auto">
                 "{clientTestimonials[currentTestimonial].text}"
@@ -311,11 +313,10 @@ export default function Clients() {
                 <button
                   key={index}
                   onClick={() => setCurrentTestimonial(index)}
-                  className={`transition-all duration-300 rounded-full ${
-                    currentTestimonial === index 
-                      ? 'w-8 h-2 bg-gradient-to-r from-violet-500 to-cyan-500' 
-                      : 'w-2 h-2 bg-[rgba(255,255,255,0.15)] hover:bg-[rgba(255,255,255,0.3)]'
-                  }`}
+                  className={`transition-all duration-300 rounded-full ${currentTestimonial === index
+                    ? 'w-8 h-2 bg-gradient-to-r from-violet-500 to-cyan-500'
+                    : 'w-2 h-2 bg-[rgba(255,255,255,0.15)] hover:bg-[rgba(255,255,255,0.3)]'
+                    }`}
                   aria-label={`Go to testimonial ${index + 1}`}
                 />
               ))}
